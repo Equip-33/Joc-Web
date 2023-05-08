@@ -22,14 +22,10 @@ var menu = new Vue({
 		scoreboard(){
 			loadpage("./html/scoreboard.html");
 		},
-		exit() {
+		clearData() {
 		// Lógica para el botón Exit
-		  	if (name != ""){
-				alert("Leaving " + name + "'s game");
-			}
-			name = "";
+		  	sessionStorage.clear();
 			localStorage.clear();
-			loadpage("../index.html");
 		},
 		mode1() {
 		// Lógica para la opción normal
