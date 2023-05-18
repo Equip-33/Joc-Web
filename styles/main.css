@@ -57,7 +57,8 @@ button.menu-object{
 	display: grid;
 	justify-content: center;
 	grid-template-columns:  auto;
-	grid-area:auto;
+	margin-top: auto;
+	margin-bottom: auto;
 	align-items: center;
 	align-content: center;
 }
