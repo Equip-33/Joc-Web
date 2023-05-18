@@ -1,7 +1,7 @@
 <svg viewBox= "0 0 500 500">
     <defs>
     <filter id="borde-difuminat">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
     </filter>
     </defs>
 
@@ -11,16 +11,36 @@
         width="500" height="500" 
     />
     <!--CERCLE FONS LOGO-->
+        
     <circle 
-        r="250" 
+        r="249" 
         cx="250" cy="250" 
-        fill="lemonchiffon" 
+        fill="#b3d3f0" 
     />
+
     <!--CERCLE BASE GLOBUS-->
     <circle 
         r="100" 
         cx="290" cy="180" 
-        fill="#847f80"
+        fill="#5f5f5f"
+    />
+
+    <path d="M241,267 A91,99 0 1,1 280,279" 
+        fill="#737373" 
+       filter="url(#borde-difuminat)"
+    />
+
+    <path d="M241,267 A78,99 0 1,1 280,279" 
+        fill="#8b8b8b" 
+        filter="url(#borde-difuminat)"
+    />
+
+    <circle 
+        r="108" 
+        cx="290" cy="180" 
+        fill="none"
+        stroke="#b3d3f0" 
+        stroke-width="15"
     />
     <!--CERCLE VOLUM GLOBUS-->
     <circle 
@@ -28,17 +48,18 @@
         cx="260" cy="180" 
         fill="#cecaca" 
         filter="url(#borde-difuminat)"
-    /><circle 
+    />
+    <circle 
         r="18" 
         cx="260" cy="180" 
         fill="#dcdcdc" 
         filter="url(#borde-difuminat)"
     />
-    <polyline points="325,87 370,239 " fill="blue" stroke-width="1" stroke="red" />
-
-
+    <!--PROVES-->
+    <!--<path d=" M325,87 370,239 385,150 325,87" fill="blue" stroke-width="1" stroke="red" />
+    <path d="M325,87 A100,100 0 0,1 370,239" fill="#525252" filter="url(#borde-difuminat)"/>-->
     <image xlink:href="../resources/Complete_Chinese_Balloon.png" x="100" y="190" width="400" height="400" />
-    <!--<polyline points="140,275 150,300, 135,330 150,360, 135,390 150,420" fill="none" stroke-width="1" stroke="#847f80" />-->
-    <polygon points="30,180 40,170 50,180" fill="#c22d4a"/>
+    <!--<polyline points="140,275 150,300, 135,330 150,360, 135,390 150,420" fill="none" stroke-width="1" stroke="#847f80" />
+    <polygon points="30,180 40,170 50,180" fill="#c22d4a"/>-->
 
 </svg>
