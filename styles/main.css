@@ -6,6 +6,7 @@ input[type=number]{
     text-align: center;
 }
 
+
 #title{
 	font-family: Valo;
 	font-size: 3rem;
@@ -28,35 +29,9 @@ input[type=number]{
 
 #jocs{
 	display: none;
-	grid-template-columns: auto auto;
-	justify-content: space-between;
-}
-
-button.menu-object{
-	font-family: Valo;
-	align-content: center;
-	font-size: 1.85rem ;
-	background-color: rgb(70, 70, 70);
-	border-style: grove;
-	border-radius: 0.5rem;
-	border-width: 0.25rem;
-	border-color: rgb(255, 255, 255);
-	color: white;
-	transition: all 0.5s;
-	cursor: pointer;
-}
-
-#mig_boto{
-	width: 10rem;
-	height: 4.688rem;
-	font-size: 1.5rem;
-	margin: auto;
-}
-
-.generic{
-	display: grid;
-	grid-template-rows: auto auto;
-
+	column-gap: 0.5rem;
+    justify-content: center;
+	grid-template-columns: max-content max-content;
 }
 
 .menu-container{
@@ -66,16 +41,12 @@ button.menu-object{
 	left:50%;
 	transform: translate(-50%,-70%);
 	justify-content: center;
-	grid-template-columns:  auto;
+	grid-template-columns:  max-content;
 	grid-template-rows: auto auto auto auto;
 	row-gap:0.5rem;
-
 }
 
 .menu-object{
-	display:flex;
-	align-items:center;
-	justify-content: center;
 	width: 18.75rem;
 	height: 4.688rem;
 	font-size: 1rem;
@@ -85,15 +56,55 @@ button.menu-object{
 p{
 	text-align: center;
 }
+
+button{
+	font-family: Valo;
+	align-content: center;
+	border-style: grove;
+	border-radius: 0.5rem;
+	border-width: 0.25rem;
+	background-color: rgb(107, 107, 107);
+	color: white;
+	border-color: rgb(102, 102, 102);
+}
+
+.mig_boto{
+	transition: all 0.5s;
+	font-family: Valo;
+	font-size: 1.5rem;
+}
+
+button.mig_boto:active{
+	font-size: 1.6rem;
+	width: 17.188rem;
+	height: 4.375rem;
+	border-radius: 0.25rem;
+	background-color: rgb(27, 71, 138);
+}
+
+button.mig_boto:hover:not(:active){
+	font-size: 1.65rem;
+
+	background-color: rgb(88, 156, 212);
+}
+
+
+button:active{
+	background-color: rgb(27, 71, 138);
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
 	
-
-
+button.menu-object{
+	transition: all 0.5s;
+	font-size: 1.85rem ;
+}
 button.menu-object:active{
 	font-size: 2rem;
 	width: 17.188rem;
 	height: 4.375rem;
 	border-radius: 0.25rem;
-	background-color: rgb(47, 108, 199);
+	background-color: rgb(27, 71, 138);
 }
 
 button.menu-object:hover:not(:active){

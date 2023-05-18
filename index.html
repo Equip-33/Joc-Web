@@ -8,18 +8,16 @@
 		<title> Equip 33 - Menu </title>
 	</head>
 	<body>
-		<div class="generic">
+		<div class="menu-container" id="menu_id">			
 			<p id="title">GAMES MENU</p>
-			<div class="menu-container" id="menu_id">
-				<button class="menu-object"  id="inici" v-on:click="divideGame()">Games</button>
-				<div class="menu-object" id="jocs">
-					<button class="menu-object" id="mig_boto" v-on:click="mode1()">Aterratge Afortunat</button>
-					<button class="menu-object" id="mig_boto" v-on:click="mode2()">Fly Dodging</button>
-				</div>
-				<button class="menu-object" v-on:click="scoreboard()">Score Board</button>
-				<button class="menu-object" v-on:click="options()">Options</button>
-				<button class="menu-object" v-on:click="clearData()">Exit</button>
+			<button class="menu-object"  id="inici" v-on:click="divideGame()">Games</button>
+			<div class="menu-object" id="jocs">
+				<button class="mig_boto" v-on:click="mode1()">Aterratge Afortunat</button>
+				<button class="mig_boto" v-on:click="mode2()">Fly Dodging</button>
 			</div>
+			<button class="menu-object" v-on:click="scoreboard()">Score Board</button>
+			<button class="menu-object" v-on:click="options()">Options</button>
+			<button class="menu-object" v-on:click="clearData()">Exit</button>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 		<script src="./js/menu_controller.js"></script>
