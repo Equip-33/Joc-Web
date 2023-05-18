@@ -1,7 +1,7 @@
 class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
-		var velocity=200;
+		this.velocitat=200;
     }
 
     preload() {
@@ -33,7 +33,7 @@ class GameScene extends Phaser.Scene {
         var x = Phaser.Math.Between(0, this.sys.game.config.width);
         var object = this.objectsGroup.create(x, 0, 'bomba');
 		object.setScale(.2);
-        object.setVelocityY(this.velocity);
+        object.setVelocityY(this.velocitat);
     }
 
     destroyObject(pointer, gameObject) {
