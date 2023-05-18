@@ -1,24 +1,23 @@
 class GameScene extends Phaser.Scene {
     constructor (){
         super('GameScene');
-		this.cards = null;
-		this.firstClick = null;
-		this.score = 100;
-		this.totalPunts=0;
-		this.correct = 0;
-		this.level=0;
-		this.user="";
-		this.mostrantError=false;
+		var sprite;
     }
 
     preload (){	
 		this.load.image('plataforma', '../resources/plataforma.png');
 	}
 	
-    create (){	
-		this.cameras.main.setBackgroundColor(0x89BCEB);
-		this.add.image(this.cameras.main.centerX,this.cameras.main.centerY,'plataforma')
-	}
+	create() {
+        this.cameras.main.setBackgroundColor(0x89BCEB);
+        this.sprite = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY / 3, 'plataforma');
+        this.sprite.setInteractive();
+        this.input.on('pointermove', this.moveSprite, this);
+    }
+
+    moveSprite(pointer) {
+        this.sprite.x = pointer.x;
+    }
 	
 	update (){	}
 }
