@@ -16,6 +16,7 @@ class GameScene extends Phaser.Scene {
 	}
 	
     create (){	
+		this.cameras.main.setBackgroundColor(0x89BCEB);
 		this.add.image(this.cameras.main.centerX,this.cameras.main.centerY,'plataforma')
 	}
 	
