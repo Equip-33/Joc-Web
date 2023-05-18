@@ -6,6 +6,14 @@ input[type=number]{
     text-align: center;
 }
 
+.fons{
+	position: absolute;
+	transform: translate(-50%);
+	left:50%;
+	height: 50rem;
+	width: 30rem;
+	background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+}
 
 #title{
 	font-family: Valo;
@@ -84,7 +92,6 @@ button.mig_boto:active{
 
 button.mig_boto:hover:not(:active){
 	font-size: 1.65rem;
-
 	background-color: rgb(88, 156, 212);
 }
 
