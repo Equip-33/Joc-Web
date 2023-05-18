@@ -28,8 +28,13 @@
         cx="260" cy="180" 
         fill="#cecaca" 
         filter="url(#borde-difuminat)"
+    /><circle 
+        r="18" 
+        cx="260" cy="180" 
+        fill="#dcdcdc" 
+        filter="url(#borde-difuminat)"
     />
-
+    <polyline points="325,87 370,239 " fill="blue" stroke-width="1" stroke="red" />
 
 
     <image xlink:href="../resources/Complete_Chinese_Balloon.png" x="100" y="190" width="400" height="400" />
