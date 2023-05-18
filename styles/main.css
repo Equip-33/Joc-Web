@@ -7,38 +7,72 @@ input[type=number]{
 }
 
 #title{
-	font-size: 26px;
-	line-height: 75px;
+	font-family: Bit;
+	font-size: 3rem;
+	line-height: 2rem;
+}
+
+@font-face {
+	font-family: Osaka;
+	src: url(../fonts/osaka-re.ttf);
+}
+@font-face {
+	font-family: Bit;
+	src: url(../fonts/8-bit\ Arcade\ In.ttf);
+}
+
+#jocs{
+	display: none;
+	grid-template-columns: auto auto;
+	justify-content: space-between;
+}
+
+#mig_boto{
+	width: 10rem;
+	height: 4.688rem;
+	font-size: 1.5rem;
+	margin: auto;
 }
 
 .menu-object{
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 300px;
-	height: 75px;
-	font-size: 16px;
-	margin-top: 10px;
-	text-align: center;
+	width: 18.75rem;
+	height: 4.688rem;
+	font-size: 1rem;
+	margin-top: 0.625rem;
 }
 
 p{
 	text-align: center;
 }
-#mig_boto{
-	width: 50%; 
-	float: left;
-	margin-bottom: 1rem;
+
+button.menu-object{
+	font-family: Bit;
+	font-size: 180% ;
+	background-color: rgb(70, 70, 70);
+	border-style: grove;
+	border-radius: 0.5rem;
+	border-width: 0.25rem;
+	border-color: rgb(255, 255, 255);
+	color: white;
+	transition: all 0.5s;
+	cursor: pointer;
 }
+
 button.menu-object:active{
-	font-size: 18px;
-	width: 275px;
-	height: 70px;
+	font-size: 200%%;
+	width: 17.188rem;
+	height: 4.375rem;
+	border-radius: 0.25rem;
+	background-color: rgb(47, 108, 199);
 }
 
 button.menu-object:hover:not(:active){
-	font-size: 22px;
-	width: 325px;
-	height: 85px;
+	font-size: 200%;
+	width: 20.313rem;
+	height: 5.313rem;
+	background-color: rgb(88, 156, 212);
 }
 

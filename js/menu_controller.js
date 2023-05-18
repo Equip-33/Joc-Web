@@ -8,8 +8,18 @@ var menu = new Vue({
 	},
 	methods: {
 		divideGame() {
-		  // Obtiene el elemento del botón del juego Phaser
-		  this.divided = !this.divided
+			var x = document.getElementById("jocs");
+			var b = document.getElementById("inici")
+			console.log(x.style.display);
+			console.log(b.style.display);
+			if (x.style.display == 'grid'){
+				console.log("Primer");
+				x.style.display = "none";
+			} 
+			else {
+				x.style.display = 'grid';
+				b.style.display = 'none';
+			}
 		},
 		load() {
 		  // Lógica para el botón Load Game
