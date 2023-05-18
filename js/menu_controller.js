@@ -42,14 +42,14 @@ var menu = new Vue({
 			sessionStorage.clear();
 		  	name = prompt("User name");
 		  	sessionStorage.setItem("playerName", name);
-			loadpage("./html/phasergame.html");
+			loadpage("./html/aterratje_afortunat.html");
 		},
 		mode2() {
 		 	// Lógica para la opción 2
 			sessionStorage.clear();
 		  	name = prompt("User name");
 		  	sessionStorage.setItem("playerName", name);
-			loadpage("./html/phasergame_infinite.html");
+			loadpage("./html/fly_doddging.html");
 		}
 	  }
 });
