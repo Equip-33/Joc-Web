@@ -45,10 +45,7 @@ button.menu-object{
 	transition: all 0.5s;
 	cursor: pointer;
 }
-#id{
-	display: block;
-	align-content:center
-}
+
 #mig_boto{
 	width: 10rem;
 	height: 4.688rem;
@@ -56,14 +53,23 @@ button.menu-object{
 	margin: auto;
 }
 
+.menu-container{
+	display: grid;
+	justify-content: center;
+	grid-template-columns:  auto;
+	grid-area:auto;
+	align-items: center;
+	align-content: center;
+}
+
 .menu-object{
-	display:grid;
-	grid-template-columns:  auto, 18.75rem, auto;
+	display:flex;
+	align-items:center;
 	justify-content: center;
 	width: 18.75rem;
 	height: 4.688rem;
 	font-size: 1rem;
-	margin:auto;
+	margin: auto;
 }
 
 p{
