@@ -1,0 +1,39 @@
+<svg viewBox= "0 0 500 500">
+    <defs>
+    <filter id="borde-difuminat">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+    </filter>
+    </defs>
+
+    <!--RECTANGLE PER VEURE AREA DEL LOGO-->
+    <rect 
+        
+        width="500" height="500" 
+    />
+    <!--CERCLE FONS LOGO-->
+    <circle 
+        r="250" 
+        cx="250" cy="250" 
+        fill="lemonchiffon" 
+    />
+    <!--CERCLE BASE GLOBUS-->
+    <circle 
+        r="100" 
+        cx="290" cy="180" 
+        fill="#847f80"
+    />
+    <!--CERCLE VOLUM GLOBUS-->
+    <circle 
+        r="30" 
+        cx="260" cy="180" 
+        fill="#cecaca" 
+        filter="url(#borde-difuminat)"
+    />
+
+
+
+    <image xlink:href="../resources/Complete_Chinese_Balloon.png" x="100" y="190" width="400" height="400" />
+    <!--<polyline points="140,275 150,300, 135,330 150,360, 135,390 150,420" fill="none" stroke-width="1" stroke="#847f80" />-->
+    <polygon points="30,180 40,170 50,180" fill="#c22d4a"/>
+
+</svg>
