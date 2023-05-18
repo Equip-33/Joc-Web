@@ -7,7 +7,6 @@
 
     <!--RECTANGLE PER VEURE AREA DEL LOGO-->
     <rect 
-        
         width="500" height="500" 
     />
     <!--CERCLE FONS LOGO-->
@@ -17,8 +16,9 @@
         cx="250" cy="250" 
         fill="#b3d3f0" 
     />
+   
 
-    <!--CERCLE BASE GLOBUS-->
+    <!--CERCLE BASE I VOLUM GLOBUS-->
     <circle 
         r="100" 
         cx="290" cy="180" 
@@ -27,7 +27,7 @@
 
     <path d="M241,267 A91,99 0 1,1 280,279" 
         fill="#737373" 
-       filter="url(#borde-difuminat)"
+        filter="url(#borde-difuminat)"
     />
 
     <path d="M241,267 A78,99 0 1,1 280,279" 
@@ -42,24 +42,41 @@
         stroke="#b3d3f0" 
         stroke-width="15"
     />
-    <!--CERCLE VOLUM GLOBUS-->
+    <!--CERCLE BRILLANT GLOBUS-->
     <circle 
         r="33" 
-        cx="260" cy="180" 
+        cx="260" cy="170" 
         fill="#cecaca" 
         filter="url(#borde-difuminat)"
     />
     <circle 
         r="18" 
-        cx="260" cy="180" 
+        cx="260" cy="170" 
         fill="#dcdcdc" 
         filter="url(#borde-difuminat)"
     />
+
+    <!--PART DE BAIX-->
+    <polygon points="261,297 268,307 275,299" fill="#8b8b8b" />
+    <polygon points="261,297 351,267 365,269 275,299" fill="#737373" />
+    <!--<polygon points="351,270 358,280 365,272" fill="#a12e2e"/>-->
+    <polygon points="275,299 365,269 358,277 268,307" fill="#5f5f5f" />
+
+    <!--BASE-->
+    <path d="M 342 265
+           A 100 100, 0, 0, 1, 265 277
+           L 285,290 332,280 Z" fill="#5c5c5c"
+    />
+
+    
+    
+    
+    
     <!--PROVES
     <path d=" M325,87 370,239 385,150 325,87" fill="blue" stroke-width="1" stroke="red" />
-    <path d="M325,87 A100,100 0 0,1 370,239" fill="#525252" filter="url(#borde-difuminat)"/>
-    <image xlink:href="../resources/Complete_Chinese_Balloon.png" x="100" y="190" width="400" height="400" />
-    <polyline points="140,275 150,300, 135,330 150,360, 135,390 150,420" fill="none" stroke-width="1" stroke="#847f80" />
+    <path d="M325,87 A100,100 0 0,1 370,239" fill="#525252" filter="url(#borde-difuminat)"/>-->
+    <image xlink:href="../resources/Complete_Chinese_Balloon.png" x="-100" y="190" width="400" height="400" />
+    <!--<polyline points="140,275 150,300, 135,330 150,360, 135,390 150,420" fill="none" stroke-width="1" stroke="#847f80" />
     <polygon points="30,180 40,170 50,180" fill="#c22d4a"/>-->
 
 </svg>
