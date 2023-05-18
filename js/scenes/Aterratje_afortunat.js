@@ -1,34 +1,35 @@
 class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
-		this.velocitat=200;
+        this.velocitat = 200;
     }
 
     preload() {
         this.load.image('plataforma', '../resources/plataforma.png');
         this.load.image('bomba', '../resources/bomba.png');
-		this.load.image('globo', '../resources/globo.png');
+        this.load.image('globo', '../resources/globo.png');
     }
 
     create() {
         this.cameras.main.setBackgroundColor(0x89BCEB);
-        this.sprite = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY / 3, 'plataforma');
-        this.sprite.setInteractive();
-        this.input.on('pointermove', this.moveSprite, this);
+        this.plataforma = this.physics.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY / 3, 'plataforma');
+        this.plataforma.setImmovable(true);
+        this.plataforma.setCollideWorldBounds(true);
+        this.plataforma.setInteractive();
+        this.input.on('pointermove', this.movePlataforma, this);
 
         this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
+        this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
 
-        this.time.addEvent({ // Evento para crear objetos cada cierto intervalo de tiempo
+        this.time.addEvent({ // Evento para crear bombas cada cierto intervalo de tiempo
             delay: 1000,
             callback: this.createBombas,
             callbackScope: this,
             loop: true
         });
 
-		this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
-
-		this.time.addEvent({ // Evento para crear objetos cada cierto intervalo de tiempo
-            delay: 1000,
+        this.time.addEvent({ // Evento para crear globos cada cierto intervalo de tiempo
+            delay: 1500,
             callback: this.createGlobus,
             callbackScope: this,
             loop: true
@@ -36,29 +37,32 @@ class GameScene extends Phaser.Scene {
 
         this.physics.world.setBoundsCollision(true, true, true, false); // Habilita la colisión con los límites del mundo
 
-        this.input.on('gameobjectup', this.destroyObject, this); // Evento para destruir objetos al tocarlos
+        this.physics.add.collider(this.plataforma, this.globus, this.handleCollision, null, this);
     }
 
     createBombas() {
         var x = Phaser.Math.Between(0, this.sys.game.config.width);
         var object = this.bombas.create(x, 0, 'bomba');
-		object.setScale(.2);
+        object.setScale(0.2);
         object.setVelocityY(this.velocitat);
     }
 
-	createGlobus() {
+    createGlobus() {
         var x = Phaser.Math.Between(0, this.sys.game.config.width);
         var object = this.globus.create(x, 0, 'globo');
-		object.setScale(.2);
+        object.setScale(0.2);
         object.setVelocityY(this.velocitat);
+        object.setInteractive(); // Habilitar interacción para el nuevo globo
+        this.physics.add.overlap(this.plataforma, object, this.handleCollision, null, this); // Agregar colisión para el nuevo globo
     }
 
-    destroyObject(pointer, gameObject) {
-        gameObject.destroy();
+    handleCollision(plataforma, globus) {
+        globus.destroy();
+        // Aquí puedes agregar la lógica adicional que desees cuando la plataforma colisione con un globo
     }
 
-    moveSprite(pointer) {
-        this.sprite.x = pointer.x;
+    movePlataforma(pointer) {
+        this.plataforma.x = pointer.x;
     }
 
     update() {
