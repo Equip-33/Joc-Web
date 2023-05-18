@@ -53,14 +53,23 @@ button.menu-object{
 	margin: auto;
 }
 
+.generic{
+	display: grid;
+	grid-template-rows: auto auto;
+
+}
+
 .menu-container{
 	display: grid;
+	position:absolute;	
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-70%);
 	justify-content: center;
 	grid-template-columns:  auto;
-	margin-top: auto;
-	margin-bottom: auto;
-	align-items: center;
-	align-content: center;
+	grid-template-rows: auto auto auto auto;
+	row-gap:0.5rem;
+
 }
 
 .menu-object{
@@ -70,7 +79,7 @@ button.menu-object{
 	width: 18.75rem;
 	height: 4.688rem;
 	font-size: 1rem;
-	margin: auto;
+	margin:auto;
 }
 
 p{
