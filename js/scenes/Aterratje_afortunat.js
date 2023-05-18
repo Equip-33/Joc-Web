@@ -7,6 +7,7 @@ class GameScene extends Phaser.Scene {
     preload() {
         this.load.image('plataforma', '../resources/plataforma.png');
         this.load.image('bomba', '../resources/bomba.png');
+		this.load.image('globo', '../resources/globo.png');
     }
 
     create() {
@@ -15,11 +16,20 @@ class GameScene extends Phaser.Scene {
         this.sprite.setInteractive();
         this.input.on('pointermove', this.moveSprite, this);
 
-        this.objectsGroup = this.physics.add.group(); // Crea un grupo de objetos con físicas
+        this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
 
         this.time.addEvent({ // Evento para crear objetos cada cierto intervalo de tiempo
             delay: 1000,
-            callback: this.createObject,
+            callback: this.createBombas,
+            callbackScope: this,
+            loop: true
+        });
+
+		this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
+
+		this.time.addEvent({ // Evento para crear objetos cada cierto intervalo de tiempo
+            delay: 1000,
+            callback: this.createGlobus,
             callbackScope: this,
             loop: true
         });
@@ -29,9 +39,16 @@ class GameScene extends Phaser.Scene {
         this.input.on('gameobjectup', this.destroyObject, this); // Evento para destruir objetos al tocarlos
     }
 
-    createObject() {
+    createBombas() {
         var x = Phaser.Math.Between(0, this.sys.game.config.width);
-        var object = this.objectsGroup.create(x, 0, 'bomba');
+        var object = this.bombas.create(x, 0, 'bomba');
+		object.setScale(.2);
+        object.setVelocityY(this.velocitat);
+    }
+
+	createGlobus() {
+        var x = Phaser.Math.Between(0, this.sys.game.config.width);
+        var object = this.globus.create(x, 0, 'globo');
 		object.setScale(.2);
         object.setVelocityY(this.velocitat);
     }
@@ -45,7 +62,7 @@ class GameScene extends Phaser.Scene {
     }
 
     update() {
-        this.objectsGroup.getChildren().forEach(function (object) {
+        this.bombas.getChildren().forEach(function (object) {
             // Verifica si el objeto ha tocado el final de la pantalla
             if (object.y >= this.sys.game.config.height) {
                 object.destroy();
