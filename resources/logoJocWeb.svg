@@ -44,7 +44,7 @@
     />
     <!--CERCLE VOLUM GLOBUS-->
     <circle 
-        r="30" 
+        r="33" 
         cx="260" cy="180" 
         fill="#cecaca" 
         filter="url(#borde-difuminat)"
