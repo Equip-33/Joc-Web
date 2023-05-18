@@ -7,8 +7,9 @@ input[type=number]{
 }
 
 #title{
-	font-family: Bit;
-	font-size: 3.85rem;
+	font-family: Valo;
+	font-size: 3rem;
+	font-weight: bold;
 	line-height: 2rem;
 }
 
@@ -20,6 +21,10 @@ input[type=number]{
 	font-family: Bit;
 	src: url(../fonts/8-bit\ Arcade\ In.ttf);
 }
+@font-face {
+	font-family: Valo;
+	src: url(../fonts/GengarDemoRegular.ttf);
+}
 
 #jocs{
 	display: none;
@@ -27,29 +32,8 @@ input[type=number]{
 	justify-content: space-between;
 }
 
-#mig_boto{
-	width: 10rem;
-	height: 4.688rem;
-	font-size: 1.5rem;
-	margin: auto;
-}
-
-.menu-object{
-	display:grid;
-	grid-template-columns:  auto, 18.75rem, auto;
-	justify-content: center;
-	width: 18.75rem;
-	height: 4.688rem;
-	font-size: 1rem;
-	margin:auto;
-}
-
-p{
-	text-align: center;
-}
-	
 button.menu-object{
-	font-family: Bit;
+	font-family: Valo;
 	align-content: center;
 	font-size: 1.85rem ;
 	background-color: rgb(70, 70, 70);
@@ -61,6 +45,38 @@ button.menu-object{
 	transition: all 0.5s;
 	cursor: pointer;
 }
+
+#mig_boto{
+	width: 10rem;
+	height: 4.688rem;
+	font-size: 1.5rem;
+	margin: auto;
+}
+
+.menu-container{
+	display: grid;
+	justify-content: center;
+	grid-template-columns:  auto;
+	grid-area:auto;
+	align-items: center;
+	align-content: center;
+}
+
+.menu-object{
+	display:flex;
+	align-items:center;
+	justify-content: center;
+	width: 18.75rem;
+	height: 4.688rem;
+	font-size: 1rem;
+	margin: auto;
+}
+
+p{
+	text-align: center;
+}
+	
+
 
 button.menu-object:active{
 	font-size: 2rem;
