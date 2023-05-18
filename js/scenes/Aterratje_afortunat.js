@@ -6,6 +6,7 @@ class GameScene extends Phaser.Scene {
 
     preload (){	
 		this.load.image('plataforma', '../resources/plataforma.png');
+		this.load.image('bomba', '../resources/bomba.png');
 	}
 	
 	create() {
