@@ -4,6 +4,7 @@ class GameScene extends Phaser.Scene {
         this.velocitat = 200;
         this.delayB = 3000
         this.puntuacion = 0;
+        this.priceU=200;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createBombas
     }
 
@@ -50,9 +51,10 @@ class GameScene extends Phaser.Scene {
 		button.scaleY = .2;
         button.setInteractive();
         button.on('pointerdown', () => {
-			if(this.puntuacion>=200){
+			if(this.puntuacion>=this.priceU){
                 this.delayB+=3000;
                 this.puntuacion-=200;
+                this.priceU+=100;
                 this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
                 if (this.bombasEvent) {
                     // Si hay un evento createBombas activo, lo eliminamos
