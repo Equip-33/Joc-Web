@@ -18,6 +18,7 @@ class GameScene extends Phaser.Scene {
     create() {
         this.cameras.main.setBackgroundColor(0x89BCEB);
         this.puntuacionText = this.add.text(16, 16, 'Puntuación: 0', { fontSize: '32px', fill: '#000' });
+        this.preuText = this.add.text(16, 50, 'Preu Millora: 200', { fontSize: '32px', fill: '#000' });
         this.plataforma = this.physics.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY / 3, 'plataforma');
         this.plataforma.setImmovable(true);
         this.plataforma.setCollideWorldBounds(true);
@@ -56,6 +57,7 @@ class GameScene extends Phaser.Scene {
                 this.puntuacion-=200;
                 this.priceU+=100;
                 this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
+                this.preuText.setText('Preu: ' + this.priceU);
                 if (this.bombasEvent) {
                     // Si hay un evento createBombas activo, lo eliminamos
                     this.time.removeEvent(this.bombasEvent);
