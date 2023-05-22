@@ -70,7 +70,7 @@ class GameScene extends Phaser.Scene {
     }
 
     createBombas() {
-        var x = Phaser.Math.Between(0, this.sys.game.config.width);
+        var x = Phaser.Math.Between(30, this.sys.game.config.width-30);
         var object = this.bombas.create(x, 0, 'bomba');
         object.setScale(0.2);
         object.setVelocityY(this.velocitat);
