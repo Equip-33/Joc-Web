@@ -1,3 +1,37 @@
+// Escena de la minipantalla
+var MiniScreenScene = new Phaser.Class({
+    Extends: Phaser.Scene,
+
+    initialize: function MiniScreenScene() {
+        Phaser.Scene.call(this, { key: 'MiniScreen' });
+    },
+
+    create: function () {
+        // Agrega un rectángulo verde como fondo de la escena
+        var rect = this.add.rectangle(0, 0, this.cameras.main.centerX, this.cameras.main.centerY, 0x00ff00);
+        rect.setOrigin(0);
+
+        // Aquí puedes crear los elementos adicionales de la minipantalla
+        // Por ejemplo, puedes agregar texto, botones, etc.
+
+        // Agrega un evento de teclado para la tecla Escape (para cerrar la minipantalla)
+        this.input.keyboard.on('keydown-ESC', this.closeMiniScreen, this);
+    },
+
+    closeMiniScreen: function () {
+        // Reanuda la escena anterior
+        this.scene.resume('GameScene');
+
+        // Habilita el procesamiento de entrada de la escena anterior
+        this.scene.get('GameScene').input.enabled = true;
+
+        // Destruye la escena de la minipantalla
+        this.scene.remove('MiniScreen');
+    }
+
+    // Resto del código de la escena de la minipantalla...
+});
+
 class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
@@ -24,7 +58,7 @@ class GameScene extends Phaser.Scene {
         this.plataforma.setCollideWorldBounds(true);
         this.plataforma.setInteractive();
         this.input.on('pointermove', this.movePlataforma, this);
-
+        this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
         this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
         this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
         
@@ -121,6 +155,17 @@ class GameScene extends Phaser.Scene {
 
     movePlataforma(pointer) {
         this.plataforma.x = pointer.x;
+    }
+
+    showMiniScreen() {
+        // Crea una nueva escena para la minipantalla
+        if (!this.scene.isActive('MiniScreen')) {
+            var miniScreenScene = this.scene.add('MiniScreen', MiniScreenScene, true);
+            // Pausa la escena actual
+            this.scene.pause();
+            // Deshabilita el procesamiento de entrada de la escena actual
+            this.input.enabled = false;
+        }
     }
 
     update() {
