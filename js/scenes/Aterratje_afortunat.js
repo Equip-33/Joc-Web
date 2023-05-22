@@ -2,6 +2,7 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
         this.velocitat = 200;
+        this.delayB = 1000
         this.puntuacion = 0;
     }
 
@@ -24,7 +25,7 @@ class GameScene extends Phaser.Scene {
         this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
 
         this.time.addEvent({ // Evento para crear bombas cada cierto intervalo de tiempo
-            delay: 1000,
+            delay: this.delayB,
             callback: this.createBombas,
             callbackScope: this,
             loop: true
@@ -59,6 +60,8 @@ class GameScene extends Phaser.Scene {
         object.setVelocityY(this.velocitat);
         object.setInteractive(); // Habilitar interacción para el nuevo globo
         this.physics.add.overlap(this.plataforma, object, this.handleCollisionG, null, this); // Agregar colisión para el nuevo globo
+        this.delayB-=100;
+        if(this.delayB<100)this.delayB=200;
     }
 
     handleCollisionG(plataforma, globus) {
