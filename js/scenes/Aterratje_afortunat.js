@@ -10,6 +10,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('plataforma', '../resources/plataforma.png');
         this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
+        this.load.image('millora', '../resources/millora.png');
     }
 
     create() {
@@ -23,7 +24,7 @@ class GameScene extends Phaser.Scene {
 
         this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
         this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
-
+        
         this.time.addEvent({ // Evento para crear bombas cada cierto intervalo de tiempo
             delay: this.delayB,
             callback: this.createBombas,
@@ -42,6 +43,18 @@ class GameScene extends Phaser.Scene {
 
         this.physics.add.collider(this.plataforma, this.globus, this.handleCollisionG, null, this);
         this.physics.add.collider(this.plataforma, this.bombas, this.handleCollisionB, null, this);
+
+        const button = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 200, 'millora');
+		button.scaleX = .2;
+		button.scaleY = .2;
+        button.setInteractive();
+        button.on('pointerdown', () => {
+			if(puntuacion=>100){
+                this.delayB+=1500;
+                this.puntuacion-=100;
+                this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
+            }
+        });
     }
 
     createBombas() {
