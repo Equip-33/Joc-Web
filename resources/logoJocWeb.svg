@@ -5,11 +5,11 @@
     </filter>
     </defs>
 
-    <!--RECTANGLE PER VEURE AREA DEL LOGO-->
+    <!--RECTANGLE PER VEURE AREA DEL LOGO
     <rect 
         width="500" height="500" 
         fill="#ffffff"
-    />
+    />-->
     <!--CERCLE FONS LOGO-->
         
     <circle 
@@ -18,7 +18,6 @@
         fill="#b3d3f0" 
     />
    
-
     <!--CERCLE BASE I VOLUM GLOBUS-->
     <circle 
         r="100" 
@@ -35,7 +34,6 @@
         fill="#8b8b8b" 
         filter="url(#borde-difuminat)"
     />
-
     <circle 
         r="108" 
         cx="290" cy="180" 
@@ -43,6 +41,7 @@
         stroke="#b3d3f0" 
         stroke-width="15"
     />
+
     <!--CERCLE BRILLANT GLOBUS-->
     <circle 
         r="33" 
@@ -57,23 +56,12 @@
         filter="url(#borde-difuminat)"
     />
 
-    <!--PART DE BAIX-->
-        <!--BARRA PRINCIPAL-
-    <polygon points="261,297 268,307 275,299" fill="#8b8b8b" />
-    <polygon points="261,297 351,267 365,269 275,299" fill="#737373" />
-    <!--<polygon points="351,270 358,280 365,272" fill="#a12e2e"/>
-    <polygon points="275,299 365,269 358,277 268,307" fill="#5f5f5f" />
-        <!--BARRA TRAVESSERA-
-    <polygon points="261,297 268,307 275,299" fill="#8b8b8b" />
-    <polygon points="400,300 245,260 240,263 390,305" fill="#737373" />
-    <!--<polygon points="351,270 358,280 365,272" fill="#a12e2e"/>
-    <polygon points="275,299 365,269 358,277 268,307" fill="#5f5f5f" />-->
-
     <!--BASE-->
     <path d="M 342 265
            A 100 100, 0, 0, 1, 265 277
            L 285,290 332,280 Z" fill="#696969"
     />
+
     <!--PLATAFORMA-->
     <polygon points="75,315 370,315 370,330 357,385 155,385 75,330" fill="#d98b8b" />
     <polygon points="75,315 125,315 125,330 75,330" fill="#b96052" />
@@ -87,6 +75,7 @@
     <polygon points="75,330 370,330 305,385 190,385" fill="#d98b8b" />
     <polygon points="138,385 190,385 125,330 75,330" fill="#e69a9a" />
     
+    <!--TEXT-->
     <path id="circlePath" d="M50,250 A200,200 0 1,1 450,250" fill="transparent" />
     <text
         style="font-family: Open Sans, sans-serif;
@@ -96,12 +85,4 @@
          ATERRATGE AFORTUNAT
         </textPath>
     </text>
-
-    <!--PROVES
-    <path d=" M325,87 370,239 385,150 325,87" fill="blue" stroke-width="1" stroke="red" />
-    <path d="M325,87 A100,100 0 0,1 370,239" fill="#525252" filter="url(#borde-difuminat)"/>
-    <image xlink:href="../resources/Complete_Chinese_Balloon.png" x="-100" y="170" width="400" height="400" />
-    <!--<polyline points="140,275 150,300, 135,330 150,360, 135,390 150,420" fill="none" stroke-width="1" stroke="#847f80" />
-    <polygon points="30,180 40,170 50,180" fill="#c22d4a"/>-->
-
 </svg>
