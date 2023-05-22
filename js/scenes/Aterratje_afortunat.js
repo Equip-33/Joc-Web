@@ -2,7 +2,7 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
         this.velocitat = 200;
-        this.delayB = 1000
+        this.delayB = 4000
         this.puntuacion = 0;
     }
 
@@ -49,10 +49,18 @@ class GameScene extends Phaser.Scene {
 		button.scaleY = .2;
         button.setInteractive();
         button.on('pointerdown', () => {
-			if(puntuacion=>100){
+			if(this.puntuacion>=100){
                 this.delayB+=1500;
                 this.puntuacion-=100;
                 this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
+                // Eliminar el evento existente y crear uno nuevo con el nuevo retardo
+                this.time.removeEvent(this.createBombas); // Eliminar el evento existente
+                this.time.addEvent({
+                    delay: this.delayB,
+                    callback: this.createBombas,
+                    callbackScope: this,
+                    loop: true
+                });
             }
         });
     }
@@ -64,6 +72,14 @@ class GameScene extends Phaser.Scene {
         object.setVelocityY(this.velocitat);
         object.setInteractive(); // Habilitar interacción para la bomba nueva
         this.physics.add.overlap(this.plataforma, object, this.handleCollisionB, null, this); // Agregar colisión para la bomba nueva
+        // Eliminar el evento existente y crear uno nuevo con el nuevo retardo
+        this.time.removeEvent(this.createBombas); // Eliminar el evento existente
+        this.time.addEvent({
+            delay: this.delayB,
+            callback: this.createBombas,
+            callbackScope: this,
+            loop: true
+        });
     }
 
     createGlobus() {
@@ -74,7 +90,6 @@ class GameScene extends Phaser.Scene {
         object.setInteractive(); // Habilitar interacción para el nuevo globo
         this.physics.add.overlap(this.plataforma, object, this.handleCollisionG, null, this); // Agregar colisión para el nuevo globo
         this.delayB-=100;
-        if(this.delayB<100)this.delayB=200;
     }
 
     handleCollisionG(plataforma, globus) {
