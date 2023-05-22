@@ -59,6 +59,7 @@ class GameScene extends Phaser.Scene {
         this.plataforma.setInteractive();
         this.input.on('pointermove', this.movePlataforma, this);
         this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
+        this.input.keyboard.on('keydown-B', this.compraMillora, this);
         this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
         this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
         
@@ -86,27 +87,30 @@ class GameScene extends Phaser.Scene {
 		button.scaleY = .2;
         button.setInteractive();
         button.on('pointerdown', () => {
-			if(this.puntuacion>=this.priceU){
-                this.delayB+=3000;
-                this.puntuacion-=200;
-                this.priceU+=100;
-                this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
-                this.preuText.setText('Preu: ' + this.priceU);
-                if (this.bombasEvent) {
-                    // Si hay un evento createBombas activo, lo eliminamos
-                    this.time.removeEvent(this.bombasEvent);
-                    // Creamos un nuevo evento createBombas con el nuevo retardo
-                    this.bombasEvent = this.time.addEvent({
-                        delay: this.delayB,
-                        callback: this.createBombas,
-                        callbackScope: this,
-                        loop: true
-                    });
-                }
-            }
+			this.compraMillora
         });
     }
 
+    compraMillora(){
+        if(this.puntuacion>=this.priceU){
+            this.delayB+=3000;
+            this.puntuacion-=200;
+            this.priceU+=100;
+            this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
+            this.preuText.setText('Preu: ' + this.priceU);
+            if (this.bombasEvent) {
+                // Si hay un evento createBombas activo, lo eliminamos
+                this.time.removeEvent(this.bombasEvent);
+                // Creamos un nuevo evento createBombas con el nuevo retardo
+                this.bombasEvent = this.time.addEvent({
+                    delay: this.delayB,
+                    callback: this.createBombas,
+                    callbackScope: this,
+                    loop: true
+                });
+            }
+        }
+    }
     createBombas() {
         var x = Phaser.Math.Between(30, this.sys.game.config.width-30);
         var object = this.bombas.create(x, 0, 'bomba');
