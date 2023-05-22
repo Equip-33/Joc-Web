@@ -93,7 +93,7 @@
     </text>
 
     <!--TEXT FLY DODGING-->
-    <path id="circlePath2" d="M225,175 A60,60 0 1,1 105,175" fill="transparent" />
+    <path id="circlePath2" d="M115,125 A60,60 0 1,1 114,125" fill="transparent" />
     <text
         class="plataforma"
         style="font-family: Valo;
