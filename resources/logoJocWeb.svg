@@ -64,26 +64,38 @@
 
     <!--PLATAFORMA-->
     <polygon
-        class="plataforma"
         points="22.5,94.5 126,94.5 126,99 102,120 46.5,120 22.5,99"
-        fill="#d98b8b" />
+        fill="#d98b8b"
+    />
     
-    <polygon points="22.5,94.5 37.5,94.5 37.5,99 22.5,99" fill="#b96052" />
+    <polygon points="22.5,94.5 37.5,94.5 37.5,99 22.5,99" fill="#b96052"/>
     <polygon points="37.5,94.5 111,94.5 111,99 37.5,99" fill="#aa4f42"/>
-    <polygon points="111,94.5 126,94.5 126,99 111,99" fill="#994538" />
+    <polygon points="111,94.5 126,94.5 126,99 111,99" fill="#994538"/>
     
-    <polygon points="41.4,115.5 56.7,115.5 56.7,120 46.5,120" fill="#b96052" />
-    <polygon points="56.7,115.5 91.8,115.5 91.8,120 56.7,120" fill="#aa4f42" />
-    <polygon points="91.5,115.5 107.1,115.5 102,120 91.5,120" fill="#994538" />
+    <polygon points="41.4,115.5 56.7,115.5 56.7,120 46.5,120" fill="#b96052"/>
+    <polygon points="56.7,115.5 91.8,115.5 91.8,120 56.7,120" fill="#aa4f42"/>
+    <polygon points="91.5,115.5 107.1,115.5 102,120 91.5,120" fill="#994538"/>
 
-    <polygon points="22.5,99 111,99 91.5,115.5 48,115.5" fill="#d98b8b" />
-    <polygon points="41.4,115.5 56.7,115.5 37.5,99 22.5,99" fill="#e69a9a" />
-    <polygon points="91.5,115.5 111,99 126,99 107.1,115.5" fill="#b36b6b" />
-    
+    <polygon points="22.5,99 111,99 91.5,115.5 48,115.5" fill="#d98b8b"/>
+    <polygon points="41.4,115.5 56.7,115.5 37.5,99 22.5,99" fill="#e69a9a"/>
+    <polygon points="91.5,115.5 111,99 126,99 107.1,115.5" fill="#b36b6b"/>
+
+    <!--PLATAFORMA-->
+    <path 
+        d="M45,60 
+           L50,67.5
+           V85
+           H30
+           V60
+           H45.4" 
+        
+        stroke="#000000"
+        fill=transparent
+    />
+
     <!--TEXT ATERRATGE AFORTUNAT-->
     <path id="circlePath1" d="M15,75 A60,60 0 1,1 135,75" fill="transparent" />
     <text
-        class="plataforma"
         style="font-family: Valo;
                 font-size: 9.5;
                 fill: #aa4f42;">
