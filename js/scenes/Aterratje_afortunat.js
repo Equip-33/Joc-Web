@@ -2,8 +2,9 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
         this.velocitat = 200;
-        this.delayB = 4000
+        this.delayB = 2000
         this.puntuacion = 0;
+        this.bombasEvent = null; // Variable para almacenar la referencia al evento createBombas
     }
 
     preload() {
@@ -25,7 +26,7 @@ class GameScene extends Phaser.Scene {
         this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
         this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
         
-        this.time.addEvent({ // Evento para crear bombas cada cierto intervalo de tiempo
+        this.time.addEvent({
             delay: this.delayB,
             callback: this.createBombas,
             callbackScope: this,
@@ -49,9 +50,9 @@ class GameScene extends Phaser.Scene {
 		button.scaleY = .2;
         button.setInteractive();
         button.on('pointerdown', () => {
-			if(this.puntuacion>=100){
+			if(this.puntuacion>=200){
                 this.delayB+=1500;
-                this.puntuacion-=100;
+                this.puntuacion-=200;
                 this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
                 // Eliminar el evento existente y crear uno nuevo con el nuevo retardo
                 this.time.removeEvent(this.createBombas); // Eliminar el evento existente
@@ -70,11 +71,16 @@ class GameScene extends Phaser.Scene {
         var object = this.bombas.create(x, 0, 'bomba');
         object.setScale(0.2);
         object.setVelocityY(this.velocitat);
-        object.setInteractive(); // Habilitar interacción para la bomba nueva
-        this.physics.add.overlap(this.plataforma, object, this.handleCollisionB, null, this); // Agregar colisión para la bomba nueva
-        // Eliminar el evento existente y crear uno nuevo con el nuevo retardo
-        this.time.removeEvent(this.createBombas); // Eliminar el evento existente
-        this.time.addEvent({
+        object.setInteractive();
+        this.physics.add.overlap(this.plataforma, object, this.handleCollisionB, null, this);
+
+        if (this.bombasEvent) {
+            // Si hay un evento createBombas activo, lo eliminamos
+            this.time.removeEvent(this.bombasEvent);
+        }
+
+        // Creamos un nuevo evento createBombas con el nuevo retardo
+        this.bombasEvent = this.time.addEvent({
             delay: this.delayB,
             callback: this.createBombas,
             callbackScope: this,
@@ -89,7 +95,7 @@ class GameScene extends Phaser.Scene {
         object.setVelocityY(this.velocitat);
         object.setInteractive(); // Habilitar interacción para el nuevo globo
         this.physics.add.overlap(this.plataforma, object, this.handleCollisionG, null, this); // Agregar colisión para el nuevo globo
-        this.delayB-=100;
+        this.delayB-=200;
     }
 
     handleCollisionG(plataforma, globus) {
