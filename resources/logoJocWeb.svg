@@ -84,7 +84,7 @@
     <path id="circlePath1" d="M15,75 A60,60 0 1,1 135,75" fill="transparent" />
     <text
         class="plataforma"
-        style="font-family: Georgia, serif;
+        style="font-family: Valo;
                 font-size: 9.5;
                 fill: #aa4f42;">
         <textPath href="#circlePath1">
@@ -96,7 +96,7 @@
     <path id="circlePath2" d="M135,75 A60,60 0 1,1 15,75" fill="transparent" />
     <text
         class="plataforma"
-        style="font-family: Georgia, serif;
+        style="font-family: Valo;
                 font-size: 9.5;
                 fill: #aa4f42;">
         <textPath href="#circlePath2">
