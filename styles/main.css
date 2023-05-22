@@ -6,6 +6,12 @@ input[type=number]{
     text-align: center;
 }
 
+
+body{
+	background-color: #d98b8b;
+
+}
+
 #title{
 	font-family: Valo;
 	font-size: 3rem;
@@ -113,10 +119,12 @@ button.menu-object:hover:not(:active){
 }
 
 .logo{
-	height: 8rem;
-	width: 4rem;
+	height: 14rem;
+	width:14rem;
 }
 
-.plataforma:hover{
+.logo:hover:not(:active){
+	transition: all 2s;
 	transform: rotate(360deg);
+	
 }
