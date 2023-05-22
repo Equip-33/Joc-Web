@@ -65,12 +65,12 @@
     <!--PLATAFORMA-->
     <polygon
         class="plataforma"
-        points="37.5,157.5 210,157.5 210,165 170,200 77.5,200 37.5,165"
+        points="22.5,94.5 126,94.5 126,99 102,120 46.5,120 22.5,99"
         fill="#d98b8b" />
     
-    <polygon points="37.5,157.5 62.5,157.5 62.5,165 37.5,165" fill="#b96052" />
-    <polygon points="62.5,157.5 185,157.5 185,165 62.5,165" fill="#aa4f42"/>
-    <polygon points="185,157.5 210,157.5 210,165 185,165" fill="#994538" />
+    <polygon points="22.5,94.5 37.5,94.5 37.5,99 22.5,99" fill="#b96052" />
+    <polygon points="37.5,94.5 111,94.5 111,99 37.5,99" fill="#aa4f42"/>
+    <polygon points="111,94.5 126,94.5 126,99 111,99" fill="#994538" />
     
     <polygon points="69,192.5 94.5,192.5 94.5,200 77.5,200" fill="#b96052" />
     <polygon points="94.5,192.5 153,192.5 153,200 94.5,200" fill="#aa4f42" />
@@ -84,8 +84,8 @@
     <path id="circlePath" d="M15,75 A60,60 0 1,1 135,75" fill="transparent" />
     <text
         class="plataforma"
-        style="font-family: Open Sans, sans-serif;
-                font-size: 9;
+        style="font-family: Valo;
+                font-size: 10;
                 fill: #aa4f42;">
         <textPath href="#circlePath">
          ATERRATGE AFORTUNAT
