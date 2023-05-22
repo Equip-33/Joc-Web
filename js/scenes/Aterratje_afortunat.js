@@ -57,6 +57,7 @@ class GameScene extends Phaser.Scene {
         this.plataforma.setImmovable(true);
         this.plataforma.setCollideWorldBounds(true);
         this.plataforma.setInteractive();
+        this.plataforma.setScale(0.5)
         this.input.on('pointermove', this.movePlataforma, this);
         this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
         this.input.keyboard.on('keydown-B', this.compraMillora, this);
@@ -114,7 +115,8 @@ class GameScene extends Phaser.Scene {
     createBombas() {
         var x = Phaser.Math.Between(30, this.sys.game.config.width-30);
         var object = this.bombas.create(x, 0, 'bomba');
-        object.setScale(0.2);
+        object.setScale(0.4
+            );
         object.setVelocityY(this.velocitat);
         object.setInteractive();
         this.physics.add.overlap(this.plataforma, object, this.handleCollisionB, null, this);
