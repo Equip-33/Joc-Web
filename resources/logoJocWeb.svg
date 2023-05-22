@@ -11,18 +11,18 @@
     <!--CERCLE FONS LOGO-->  
     <circle 
         r="75" 
-        cx="100" cy="75" 
+        cx="75" cy="75" 
         fill="#b3d3f0" 
     />
    
     <!--CERCLE BASE I VOLUM GLOBUS-->
     <circle 
-        r="50" 
-        cx="145" cy="90" 
+        r="30" 
+        cx="87" cy="54" 
         fill="#5f5f5f"
     />
 
-    <path d="M120.5,133.5 A45.5,49.5 0 1,1 140,139.5" 
+    <path d="M72.3,80.1 A27.3,29.7 0 1,1 84,83.7" 
         fill="#737373" 
         filter="url(#borde-difuminat-gran)"
     />
@@ -81,11 +81,11 @@
     <polygon points="152.5,192.5 185,165 210,165 178.5,192.5" fill="#b36b6b" />
     
     <!--TEXT-->
-    <path id="circlePath" d="M25,125 A100,100 0 1,1 225,125" fill="transparent" />
+    <path id="circlePath" d="M15,75 A60,60 0 1,1 135,75" fill="transparent" />
     <text
         class="plataforma"
         style="font-family: Open Sans, sans-serif;
-                font-size: 15;
+                font-size: 9;
                 fill: #aa4f42;">
         <textPath href="#circlePath">
          ATERRATGE AFORTUNAT
