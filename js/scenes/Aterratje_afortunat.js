@@ -54,14 +54,17 @@ class GameScene extends Phaser.Scene {
                 this.delayB+=1500;
                 this.puntuacion-=200;
                 this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
-                // Eliminar el evento existente y crear uno nuevo con el nuevo retardo
-                this.time.removeEvent(this.createBombas); // Eliminar el evento existente
-                this.time.addEvent({
-                    delay: this.delayB,
-                    callback: this.createBombas,
-                    callbackScope: this,
-                    loop: true
-                });
+                if (this.bombasEvent) {
+                    // Si hay un evento createBombas activo, lo eliminamos
+                    this.time.removeEvent(this.bombasEvent);
+                    // Creamos un nuevo evento createBombas con el nuevo retardo
+                    this.bombasEvent = this.time.addEvent({
+                        delay: this.delayB,
+                        callback: this.createBombas,
+                        callbackScope: this,
+                        loop: true
+                    });
+                }
             }
         });
     }
@@ -77,15 +80,14 @@ class GameScene extends Phaser.Scene {
         if (this.bombasEvent) {
             // Si hay un evento createBombas activo, lo eliminamos
             this.time.removeEvent(this.bombasEvent);
+            // Creamos un nuevo evento createBombas con el nuevo retardo
+            this.bombasEvent = this.time.addEvent({
+                delay: this.delayB,
+                callback: this.createBombas,
+                callbackScope: this,
+                loop: true
+            });
         }
-
-        // Creamos un nuevo evento createBombas con el nuevo retardo
-        this.bombasEvent = this.time.addEvent({
-            delay: this.delayB,
-            callback: this.createBombas,
-            callbackScope: this,
-            loop: true
-        });
     }
 
     createGlobus() {
