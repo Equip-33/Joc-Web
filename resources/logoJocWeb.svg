@@ -1,12 +1,14 @@
-<svg viewBox= "0 0 250 250">
+<svg viewBox= "0 0 250 250" xmlns="http://www.w3.org/2000/svg">
     <defs>
-    <filter id="borde-difuminat">
+    <filter id="borde-difuminat-gran">
         <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+    </filter>
+    <filter id="borde-difuminat-petit">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
     </filter>
     </defs>
 
-    <!--CERCLE FONS LOGO-->
-        
+    <!--CERCLE FONS LOGO-->  
     <circle 
         r="124.5" 
         cx="125" cy="125" 
@@ -22,12 +24,12 @@
 
     <path d="M120.5,133.5 A45.5,49.5 0 1,1 140,139.5" 
         fill="#737373" 
-        filter="url(#borde-difuminat)"
+        filter="url(#borde-difuminat-gran)"
     />
 
     <path d="M120.5,133.5 A39,49.5 0 1,1 140,139.5" 
         fill="#8b8b8b" 
-        filter="url(#borde-difuminat)"
+        filter="url(#borde-difuminat-gran)"
     />
     <circle 
         r="57" 
@@ -42,33 +44,35 @@
         r="16.5" 
         cx="130" cy="85" 
         fill="#cecaca" 
-        filter="url(#borde-difuminat)"
+        filter="url(#borde-difuminat-petit)"
     />
     <circle 
         r="9" 
         cx="130" cy="85" 
         fill="#dcdcdc" 
-        filter="url(#borde-difuminat)"
+        filter="url(#borde-difuminat-petit)"
     />
 
     <!--BASE-->
-    <path d="M 171 132.5
-           A 50 50, 0, 0, 1, 132.5 138.5
+    <path d="M 170 132.5
+           A 50 50, 0, 0, 1, 132.5 137.5
            L 142.5,145 166,140 Z" fill="#696969"
     />
 
     <!--PLATAFORMA-->
-    <polygon points="37.5,157.5 185,157.5 185,165 178.5,192.5 77.5,192.5 37.5,165" fill="#d98b8b" />
+    <polygon points="37.5,157.5 210,157.5 210,165 170,200 77.5,200 37.5,165" fill="#d98b8b" />
+    
     <polygon points="37.5,157.5 62.5,157.5 62.5,165 37.5,165" fill="#b96052" />
     <polygon points="62.5,157.5 185,157.5 185,165 62.5,165" fill="#aa4f42"/>
     <polygon points="185,157.5 210,157.5 210,165 185,165" fill="#994538" />
-    <!--<polygon points="75,315 420,315 420,320  75,320" fill="#7a2d26" />-->
+    
     <polygon points="69,192.5 94.5,192.5 94.5,200 77.5,200" fill="#b96052" />
     <polygon points="94.5,192.5 153,192.5 153,200 94.5,200" fill="#aa4f42" />
     <polygon points="152.5,192.5 178.5,192.5 170,200 152.5,200" fill="#994538" />
-    <polygon points="152.5,192.5 185,165 210,165 178.5,192.5" fill="#b36b6b" />
+
     <polygon points="37.5,165 185,165 152.5,192.5 80,192.5" fill="#d98b8b" />
     <polygon points="69,192.5 94.5,192.5 62.5,165 37.5,165" fill="#e69a9a" />
+    <polygon points="152.5,192.5 185,165 210,165 178.5,192.5" fill="#b36b6b" />
     
     <!--TEXT-->
     <path id="circlePath" d="M25,125 A100,100 0 1,1 225,125" fill="transparent" />
