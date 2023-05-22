@@ -60,7 +60,10 @@
     />
 
     <!--PLATAFORMA-->
-    <polygon points="37.5,157.5 210,157.5 210,165 170,200 77.5,200 37.5,165" fill="#d98b8b" />
+    <polygon
+        class="plataforma"
+        points="37.5,157.5 210,157.5 210,165 170,200 77.5,200 37.5,165"
+        fill="#d98b8b" />
     
     <polygon points="37.5,157.5 62.5,157.5 62.5,165 37.5,165" fill="#b96052" />
     <polygon points="62.5,157.5 185,157.5 185,165 62.5,165" fill="#aa4f42"/>
@@ -77,6 +80,7 @@
     <!--TEXT-->
     <path id="circlePath" d="M25,125 A100,100 0 1,1 225,125" fill="transparent" />
     <text
+        class="plataforma"
         style="font-family: Open Sans, sans-serif;
                 font-size: ;
                 fill: #aa4f42;">
