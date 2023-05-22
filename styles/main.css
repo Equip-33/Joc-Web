@@ -123,8 +123,6 @@ button.menu-object:hover:not(:active){
 	width:14rem;
 }
 
-.logo:hover:not(:active){
-	transition: all 2s;
+.plataforma:hover{
 	transform: rotate(360deg);
-	
 }
