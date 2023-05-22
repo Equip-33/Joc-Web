@@ -107,7 +107,6 @@ button.menu-object:hover:not(:active){
 
 .logo{
 	margin: auto;
-	margin-bottom: 1000px;
 	height: 14rem;
 	width:14rem;
 	transition: all 2s;

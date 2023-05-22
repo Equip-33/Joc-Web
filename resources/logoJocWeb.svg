@@ -85,7 +85,7 @@
     <text
         class="plataforma"
         style="font-family: Valo;
-                font-size: 10;
+                font-size: 9.5;
                 fill: #aa4f42;">
         <textPath href="#circlePath">
          ATERRATGE AFORTUNAT
