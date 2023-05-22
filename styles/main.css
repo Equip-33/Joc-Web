@@ -8,8 +8,7 @@ input[type=number]{
 
 
 body{
-	background-color: #d98b8b;
-
+	background-color: #e69a9a;
 }
 
 #title{
@@ -19,14 +18,6 @@ body{
 	line-height: 2rem;
 }
 
-@font-face {
-	font-family: Osaka;
-	src: url(../fonts/osaka-re.ttf);
-}
-@font-face {
-	font-family: Bit;
-	src: url(../fonts/8-bit\ Arcade\ In.ttf);
-}
 @font-face {
 	font-family: Valo;
 	src: url(../fonts/Nice\ Sugar.ttf);
@@ -81,10 +72,9 @@ button{
 
 button.mig_boto:active{
 	font-size: 1.6rem;
-	width: 17.188rem;
 	height: 4.375rem;
 	border-radius: 0.25rem;
-	background-color: rgb(27, 71, 138);
+	background-color: #cecaca;
 }
 
 button.mig_boto:hover:not(:active){
