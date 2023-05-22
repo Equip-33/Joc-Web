@@ -1,3 +1,37 @@
+// Escena de la minipantalla
+var MiniScreenScene = new Phaser.Class({
+    Extends: Phaser.Scene,
+
+    initialize: function MiniScreenScene() {
+        Phaser.Scene.call(this, { key: 'MiniScreen' });
+    },
+
+    create: function () {
+        // Agrega un rectángulo verde como fondo de la escena
+        var rect = this.add.rectangle(this.cameras.main.centerX-100, this.cameras.main.centerY-300, 200, 400, 0x00ff00, 0.5);
+        rect.setOrigin(0);
+
+        // Aquí puedes crear los elementos adicionales de la minipantalla
+        // Por ejemplo, puedes agregar texto, botones, etc.
+
+        // Agrega un evento de teclado para la tecla Escape (para cerrar la minipantalla)
+        this.input.keyboard.on('keydown-ESC', this.closeMiniScreen, this);
+    },
+
+    closeMiniScreen: function () {
+        // Reanuda la escena anterior
+        this.scene.resume('GameScene');
+
+        // Habilita el procesamiento de entrada de la escena anterior
+        this.scene.get('GameScene').input.enabled = true;
+
+        // Destruye la escena de la minipantalla
+        this.scene.remove('MiniScreen');    
+    }
+
+    // Resto del código de la escena de la minipantalla...
+});
+
 class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
@@ -24,7 +58,8 @@ class GameScene extends Phaser.Scene {
         this.plataforma.setCollideWorldBounds(true);
         this.plataforma.setInteractive();
         this.input.on('pointermove', this.movePlataforma, this);
-
+        this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
+        this.input.keyboard.on('keydown-B', this.compraMillora, this);
         this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
         this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
         
@@ -52,27 +87,30 @@ class GameScene extends Phaser.Scene {
 		button.scaleY = .2;
         button.setInteractive();
         button.on('pointerdown', () => {
-			if(this.puntuacion>=this.priceU){
-                this.delayB+=3000;
-                this.puntuacion-=200;
-                this.priceU+=100;
-                this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
-                this.preuText.setText('Preu: ' + this.priceU);
-                if (this.bombasEvent) {
-                    // Si hay un evento createBombas activo, lo eliminamos
-                    this.time.removeEvent(this.bombasEvent);
-                    // Creamos un nuevo evento createBombas con el nuevo retardo
-                    this.bombasEvent = this.time.addEvent({
-                        delay: this.delayB,
-                        callback: this.createBombas,
-                        callbackScope: this,
-                        loop: true
-                    });
-                }
-            }
+			this.compraMillora
         });
     }
 
+    compraMillora(){
+        if(this.puntuacion>=this.priceU){
+            this.delayB+=3000;
+            this.puntuacion-=200;
+            this.priceU+=100;
+            this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
+            this.preuText.setText('Preu Millora: ' + this.priceU);
+            if (this.bombasEvent) {
+                // Si hay un evento createBombas activo, lo eliminamos
+                this.time.removeEvent(this.bombasEvent);
+                // Creamos un nuevo evento createBombas con el nuevo retardo
+                this.bombasEvent = this.time.addEvent({
+                    delay: this.delayB,
+                    callback: this.createBombas,
+                    callbackScope: this,
+                    loop: true
+                });
+            }
+        }
+    }
     createBombas() {
         var x = Phaser.Math.Between(30, this.sys.game.config.width-30);
         var object = this.bombas.create(x, 0, 'bomba');
@@ -121,6 +159,17 @@ class GameScene extends Phaser.Scene {
 
     movePlataforma(pointer) {
         this.plataforma.x = pointer.x;
+    }
+
+    showMiniScreen() {
+        // Crea una nueva escena para la minipantalla
+        if (!this.scene.isActive('MiniScreen')) {
+            var miniScreenScene = this.scene.add('MiniScreen', MiniScreenScene, true);
+            // Pausa la escena actual
+            this.scene.pause();
+            // Deshabilita el procesamiento de entrada de la escena actual
+            this.input.enabled = false;
+        }
     }
 
     update() {
