@@ -29,7 +29,7 @@ body{
 }
 @font-face {
 	font-family: Valo;
-	src: url(../fonts/GengarDemoRegular.ttf);
+	src: url(../fonts/Nice\ Sugar.ttf);
 }
 
 #jocs{
@@ -68,9 +68,9 @@ button{
 	border-style: grove;
 	border-radius: 0.5rem;
 	border-width: 0.25rem;
-	background-color: rgb(107, 107, 107);
+	background-color: #994538;
 	color: white;
-	border-color: rgb(102, 102, 102);
+	border-color: #aa4f42;
 }
 
 .mig_boto{
@@ -89,18 +89,11 @@ button.mig_boto:active{
 
 button.mig_boto:hover:not(:active){
 	font-size: 1.65rem;
-	background-color: rgb(88, 156, 212);
-}
-
-
-button:active{
-	background-color: rgb(27, 71, 138);
-	box-shadow: 0 5px #666;
-	transform: translateY(4px);
+	background-color: #b96052;
 }
 	
 button.menu-object{
-	transition: all 0.5s;
+	transition: all 0.8s;
 	font-size: 1.85rem ;
 }
 button.menu-object:active{
@@ -108,20 +101,26 @@ button.menu-object:active{
 	width: 17.188rem;
 	height: 4.375rem;
 	border-radius: 0.25rem;
-	background-color: rgb(27, 71, 138);
+	background-color: rgb(138, 31, 27);
 }
 
 button.menu-object:hover:not(:active){
 	font-size: 2rem;
 	width: 20.313rem;
 	height: 5.313rem;
-	background-color: rgb(88, 156, 212);
+	background-color: #b96052;
+	/*color: #aa4f42;
+	color:#b96052;
+	color: #994538;
+	*/
 }
 
-.plataforma{
-	transition: transform 1s;
+.logo{
+	height: 14rem;
+	width:14rem;
+	transition: all 2s;
 }
 
-.plataforma:hover{
-	transform: rotate(80deg);
+.logo:hover:not(:active){
+	transform: rotate(360deg);
 }
