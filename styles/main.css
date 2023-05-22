@@ -117,6 +117,10 @@ button.menu-object:hover:not(:active){
 	width: 4rem;
 }
 
+.plataforma{
+	transition: transform 1s;
+}
+
 .plataforma:hover{
 	transform: rotate(360deg);
 }
