@@ -8,7 +8,7 @@ var MiniScreenScene = new Phaser.Class({
 
     create: function () {
         // Agrega un rectángulo verde como fondo de la escena
-        var rect = this.add.rectangle(0, 0, this.cameras.main.centerX, this.cameras.main.centerY, 0x00ff00);
+        var rect = this.add.rectangle(this.cameras.main.centerX-100, this.cameras.main.centerY-300, 200, 400, 0x00ff00, 0.5);
         rect.setOrigin(0);
 
         // Aquí puedes crear los elementos adicionales de la minipantalla
@@ -26,7 +26,7 @@ var MiniScreenScene = new Phaser.Class({
         this.scene.get('GameScene').input.enabled = true;
 
         // Destruye la escena de la minipantalla
-        this.scene.remove('MiniScreen');
+        this.scene.remove('MiniScreen');    
     }
 
     // Resto del código de la escena de la minipantalla...
