@@ -39,7 +39,8 @@ class GameScene extends Phaser.Scene {
 
         this.physics.world.setBoundsCollision(true, true, true, false); // Habilita la colisión con los límites del mundo
 
-        this.physics.add.collider(this.plataforma, this.globus, this.handleCollision, null, this);
+        this.physics.add.collider(this.plataforma, this.globus, this.handleCollisionG, null, this);
+        this.physics.add.collider(this.plataforma, this.bombas, this.handleCollisionB, null, this);
     }
 
     createBombas() {
@@ -47,6 +48,8 @@ class GameScene extends Phaser.Scene {
         var object = this.bombas.create(x, 0, 'bomba');
         object.setScale(0.2);
         object.setVelocityY(this.velocitat);
+        object.setInteractive(); // Habilitar interacción para la bomba nueva
+        this.physics.add.overlap(this.plataforma, object, this.handleCollisionB, null, this); // Agregar colisión para la bomba nueva
     }
 
     createGlobus() {
@@ -55,14 +58,21 @@ class GameScene extends Phaser.Scene {
         object.setScale(0.2);
         object.setVelocityY(this.velocitat);
         object.setInteractive(); // Habilitar interacción para el nuevo globo
-        this.physics.add.overlap(this.plataforma, object, this.handleCollision, null, this); // Agregar colisión para el nuevo globo
+        this.physics.add.overlap(this.plataforma, object, this.handleCollisionG, null, this); // Agregar colisión para el nuevo globo
     }
 
-    handleCollision(plataforma, globus) {
+    handleCollisionG(plataforma, globus) {
         globus.destroy();
         this.puntuacion += 10; // Incrementa la puntuación por cada globo guardado
         this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
         // Aquí puedes agregar la lógica adicional que desees cuando la plataforma colisione con un globo
+    }
+
+    handleCollisionB(plataforma, bomba) {
+        bomba.destroy();
+        this.puntuacion += 10; // Incrementa la puntuación por cada globo guardado
+        this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
+        // Aquí puedes agregar la lógica adicional que desees cuando la plataforma colisione con una bomba
     }
 
     movePlataforma(pointer) {
