@@ -84,7 +84,7 @@
     <path id="circlePath1" d="M15,75 A60,60 0 1,1 135,75" fill="transparent" />
     <text
         class="plataforma"
-        style="font-family: Valo;
+        style="font-family: Georgia, serif;
                 font-size: 9.5;
                 fill: #aa4f42;">
         <textPath href="#circlePath1">
@@ -93,10 +93,10 @@
     </text>
 
     <!--TEXT FLY DODGING-->
-    <path id="circlePath2" d="M115,125 A60,60 0 1,1 114,125" fill="transparent" />
+    <path id="circlePath2" d="M95,125 A60,60 0 1,1 114,125" fill="transparent" />
     <text
         class="plataforma"
-        style="font-family: Valo;
+        style="font-family: Georgia, serif;
                 font-size: 9.5;
                 fill: #aa4f42;">
         <textPath href="#circlePath2">
