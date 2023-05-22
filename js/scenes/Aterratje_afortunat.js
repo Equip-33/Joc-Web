@@ -2,6 +2,7 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
         this.velocitat = 200;
+        this.puntuacion = 0;
     }
 
     preload() {
@@ -12,6 +13,7 @@ class GameScene extends Phaser.Scene {
 
     create() {
         this.cameras.main.setBackgroundColor(0x89BCEB);
+        this.puntuacionText = this.add.text(16, 16, 'Puntuación: 0', { fontSize: '32px', fill: '#000' });
         this.plataforma = this.physics.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY / 3, 'plataforma');
         this.plataforma.setImmovable(true);
         this.plataforma.setCollideWorldBounds(true);
@@ -58,6 +60,8 @@ class GameScene extends Phaser.Scene {
 
     handleCollision(plataforma, globus) {
         globus.destroy();
+        this.puntuacion += 10; // Incrementa la puntuación por cada globo guardado
+        this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
         // Aquí puedes agregar la lógica adicional que desees cuando la plataforma colisione con un globo
     }
 
