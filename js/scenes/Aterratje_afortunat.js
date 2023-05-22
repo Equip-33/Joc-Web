@@ -2,7 +2,7 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
         this.velocitat = 200;
-        this.delayB = 2000
+        this.delayB = 3000
         this.puntuacion = 0;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createBombas
     }
@@ -26,7 +26,7 @@ class GameScene extends Phaser.Scene {
         this.bombas = this.physics.add.group(); // Crea un grupo de objetos con físicas
         this.globus = this.physics.add.group(); // Crea un grupo de objetos con físicas
         
-        this.time.addEvent({
+        this.bombasEvent = this.time.addEvent({
             delay: this.delayB,
             callback: this.createBombas,
             callbackScope: this,
@@ -51,7 +51,7 @@ class GameScene extends Phaser.Scene {
         button.setInteractive();
         button.on('pointerdown', () => {
 			if(this.puntuacion>=200){
-                this.delayB+=1500;
+                this.delayB+=3000;
                 this.puntuacion-=200;
                 this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
                 if (this.bombasEvent) {
@@ -76,7 +76,8 @@ class GameScene extends Phaser.Scene {
         object.setVelocityY(this.velocitat);
         object.setInteractive();
         this.physics.add.overlap(this.plataforma, object, this.handleCollisionB, null, this);
-
+        if(this.delayB<600) this.delayB=700;
+        else this.delayB-=200;
         if (this.bombasEvent) {
             // Si hay un evento createBombas activo, lo eliminamos
             this.time.removeEvent(this.bombasEvent);
@@ -97,7 +98,6 @@ class GameScene extends Phaser.Scene {
         object.setVelocityY(this.velocitat);
         object.setInteractive(); // Habilitar interacción para el nuevo globo
         this.physics.add.overlap(this.plataforma, object, this.handleCollisionG, null, this); // Agregar colisión para el nuevo globo
-        this.delayB-=200;
     }
 
     handleCollisionG(plataforma, globus) {
