@@ -4,7 +4,7 @@
         <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
     </filter>
     <filter id="borde-difuminat-petit">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" />
     </filter>
     </defs>
 
@@ -27,28 +27,28 @@
         filter="url(#borde-difuminat-gran)"
     />
 
-    <path d="M120.5,133.5 A39,49.5 0 1,1 140,139.5" 
+    <path d="M72.3,80.1 A23.4,29.7 0 1,1 84,83.7" 
         fill="#8b8b8b" 
         filter="url(#borde-difuminat-gran)"
     />
     <circle 
-        r="57" 
-        cx="145" cy="90" 
+        r="34.2" 
+        cx="87" cy="54" 
         fill="none"
         stroke="#b3d3f0" 
-        stroke-width="15"
+        stroke-width="9"
     />
 
     <!--CERCLE BRILLANT GLOBUS-->
     <circle 
-        r="16.5" 
-        cx="130" cy="85" 
+        r="9.9" 
+        cx="78" cy="51" 
         fill="#cecaca" 
         filter="url(#borde-difuminat-petit)"
     />
     <circle 
-        r="9" 
-        cx="130" cy="85" 
+        r="5.4" 
+        cx="78" cy="51" 
         fill="#dcdcdc" 
         filter="url(#borde-difuminat-petit)"
     />
@@ -56,9 +56,9 @@
     <!--BASE-->
     <path 
         class="plataforma"
-        d="M 170 132.5
-           A 50 50, 0, 0, 1, 132.5 137.5
-           L 142.5,145 166,140 Z" 
+        d="M 102 79.5
+           A 30 30, 0, 0, 1, 79.5 82.5
+           L 85.5,87 99.6,84 Z" 
         fill="#696969"
     />
 
