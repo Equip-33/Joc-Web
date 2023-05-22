@@ -97,7 +97,7 @@ class GameScene extends Phaser.Scene {
             this.puntuacion-=200;
             this.priceU+=100;
             this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
-            this.preuText.setText('Preu: ' + this.priceU);
+            this.preuText.setText('Preu Millora: ' + this.priceU);
             if (this.bombasEvent) {
                 // Si hay un evento createBombas activo, lo eliminamos
                 this.time.removeEvent(this.bombasEvent);
