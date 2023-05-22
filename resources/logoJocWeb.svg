@@ -18,22 +18,22 @@
     <!--CERCLE BASE I VOLUM GLOBUS-->
     <circle 
         r="30" 
-        cx="97" cy="54" 
+        cx="92" cy="54" 
         fill="#5f5f5f"
     />
 
-    <path d="M82.3,80.1 A27.3,29.7 0 1,1 94,83.7" 
+    <path d="M77.3,80.1 A27.3,29.7 0 1,1 89,83.7" 
         fill="#737373" 
         filter="url(#borde-difuminat-gran)"
     />
 
-    <path d="M82.3,80.1 A23.4,29.7 0 1,1 94,83.7" 
+    <path d="M77.3,80.1 A23.4,29.7 0 1,1 89,83.7" 
         fill="#8b8b8b" 
         filter="url(#borde-difuminat-gran)"
     />
     <circle 
         r="34.2" 
-        cx="97" cy="54" 
+        cx="92" cy="54" 
         fill="none"
         stroke="#b3d3f0" 
         stroke-width="9"
@@ -42,13 +42,13 @@
     <!--CERCLE BRILLANT GLOBUS-->
     <circle 
         r="9.9" 
-        cx="88" cy="51" 
+        cx="83" cy="51" 
         fill="#cecaca" 
         filter="url(#borde-difuminat-petit)"
     />
     <circle 
         r="5.4" 
-        cx="88" cy="51" 
+        cx="83" cy="51" 
         fill="#dcdcdc" 
         filter="url(#borde-difuminat-petit)"
     />
