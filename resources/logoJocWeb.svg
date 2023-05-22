@@ -1,42 +1,37 @@
-<svg viewBox= "0 0 500 500">
+<svg viewBox= "0 0 250 250">
     <defs>
     <filter id="borde-difuminat">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
     </filter>
     </defs>
 
-    <!--RECTANGLE PER VEURE AREA DEL LOGO
-    <rect 
-        width="500" height="500" 
-        fill="#ffffff"
-    />-->
     <!--CERCLE FONS LOGO-->
         
     <circle 
-        r="249" 
-        cx="250" cy="250" 
+        r="124.5" 
+        cx="125" cy="125" 
         fill="#b3d3f0" 
     />
    
     <!--CERCLE BASE I VOLUM GLOBUS-->
     <circle 
-        r="100" 
-        cx="290" cy="180" 
+        r="50" 
+        cx="145" cy="90" 
         fill="#5f5f5f"
     />
 
-    <path d="M241,267 A91,99 0 1,1 280,279" 
+    <path d="M120.5,133.5 A45.5,49.5 0 1,1 140,139.5" 
         fill="#737373" 
         filter="url(#borde-difuminat)"
     />
 
-    <path d="M241,267 A78,99 0 1,1 280,279" 
+    <path d="M120.5,133.5 A39,49.5 0 1,1 140,139.5" 
         fill="#8b8b8b" 
         filter="url(#borde-difuminat)"
     />
     <circle 
-        r="108" 
-        cx="290" cy="180" 
+        r="57" 
+        cx="145" cy="90" 
         fill="none"
         stroke="#b3d3f0" 
         stroke-width="15"
@@ -44,42 +39,42 @@
 
     <!--CERCLE BRILLANT GLOBUS-->
     <circle 
-        r="33" 
-        cx="260" cy="170" 
+        r="16.5" 
+        cx="130" cy="85" 
         fill="#cecaca" 
         filter="url(#borde-difuminat)"
     />
     <circle 
-        r="18" 
-        cx="260" cy="170" 
+        r="9" 
+        cx="130" cy="85" 
         fill="#dcdcdc" 
         filter="url(#borde-difuminat)"
     />
 
     <!--BASE-->
-    <path d="M 342 265
-           A 100 100, 0, 0, 1, 265 277
-           L 285,290 332,280 Z" fill="#696969"
+    <path d="M 171 132.5
+           A 50 50, 0, 0, 1, 132.5 138.5
+           L 142.5,145 166,140 Z" fill="#696969"
     />
 
     <!--PLATAFORMA-->
-    <polygon points="75,315 370,315 370,330 357,385 155,385 75,330" fill="#d98b8b" />
-    <polygon points="75,315 125,315 125,330 75,330" fill="#b96052" />
-    <polygon points="125,315 370,315 370,330 125,330" fill="#aa4f42"/>
-    <polygon points="370,315 420,315 420,330 370,330" fill="#994538" />
+    <polygon points="37.5,157.5 185,157.5 185,165 178.5,192.5 77.5,192.5 37.5,165" fill="#d98b8b" />
+    <polygon points="37.5,157.5 62.5,157.5 62.5,165 37.5,165" fill="#b96052" />
+    <polygon points="62.5,157.5 185,157.5 185,165 62.5,165" fill="#aa4f42"/>
+    <polygon points="185,157.5 210,157.5 210,165 185,165" fill="#994538" />
     <!--<polygon points="75,315 420,315 420,320  75,320" fill="#7a2d26" />-->
-    <polygon points="138,385 190,385 190,400 155,400" fill="#b96052" />
-    <polygon points="189,385 306,385 306,400 189,400" fill="#aa4f42" />
-    <polygon points="305,385 357,385 340,400 305,400" fill="#994538" />
-    <polygon points="305,385 370,330 420,330 357,385" fill="#b36b6b" />
-    <polygon points="75,330 370,330 305,385 190,385" fill="#d98b8b" />
-    <polygon points="138,385 190,385 125,330 75,330" fill="#e69a9a" />
+    <polygon points="69,192.5 94.5,192.5 94.5,200 77.5,200" fill="#b96052" />
+    <polygon points="94.5,192.5 153,192.5 153,200 94.5,200" fill="#aa4f42" />
+    <polygon points="152.5,192.5 178.5,192.5 170,200 152.5,200" fill="#994538" />
+    <polygon points="152.5,192.5 185,165 210,165 178.5,192.5" fill="#b36b6b" />
+    <polygon points="37.5,165 185,165 152.5,192.5 80,192.5" fill="#d98b8b" />
+    <polygon points="69,192.5 94.5,192.5 62.5,165 37.5,165" fill="#e69a9a" />
     
     <!--TEXT-->
-    <path id="circlePath" d="M50,250 A200,200 0 1,1 450,250" fill="transparent" />
+    <path id="circlePath" d="M25,125 A100,100 0 1,1 225,125" fill="transparent" />
     <text
         style="font-family: Open Sans, sans-serif;
-                font-size: 30;
+                font-size: ;
                 fill: #aa4f42;">
         <textPath href="#circlePath">
          ATERRATGE AFORTUNAT
