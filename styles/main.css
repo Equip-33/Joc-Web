@@ -118,9 +118,9 @@ button.menu-object:hover:not(:active){
 }
 
 .plataforma{
-	transition: transform 1s;
+	transition: transform 2s;
 }
 
 .plataforma:hover{
-	transform: rotate(360deg);
+	transform: rotate(80deg);
 }
