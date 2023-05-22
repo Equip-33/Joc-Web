@@ -118,11 +118,10 @@ button.menu-object:hover:not(:active){
 	background-color: rgb(88, 156, 212);
 }
 
-.logo{
-	height: 14rem;
-	width:14rem;
+.plataforma{
+	transition: transform 1s;
 }
 
 .plataforma:hover{
-	transform: rotate(360deg);
+	transform: rotate(80deg);
 }
