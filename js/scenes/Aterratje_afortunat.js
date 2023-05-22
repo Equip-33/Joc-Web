@@ -70,8 +70,9 @@ class GameScene extends Phaser.Scene {
 
     handleCollisionB(plataforma, bomba) {
         bomba.destroy();
-        this.puntuacion += 10; // Incrementa la puntuación por cada globo guardado
+        this.puntuacion -= 20; // Incrementa la puntuación por cada globo guardado
         this.puntuacionText.setText('Puntuación: ' + this.puntuacion); // Actualiza el texto de puntuación
+        if(this.puntuacion<0) this.puntuacion=0;
         // Aquí puedes agregar la lógica adicional que desees cuando la plataforma colisione con una bomba
     }
 
