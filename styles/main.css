@@ -107,11 +107,19 @@ button.menu-object:hover:not(:active){
 
 .logo{
 	margin: auto;
-	height: 14rem;
-	width:14rem;
+	height: 10rem;
+	width: 10rem;
 	transition: all 2s;
 }
 
-.logo:hover:not(:active){
-	transform: rotate(80deg);
+.logo:hover{
+	transform: rotate(60deg);
+}
+
+.plataforma{
+	transition: all 2s;
+}
+
+.plataforma:hover{
+	transform: rotate(60deg);
 }
