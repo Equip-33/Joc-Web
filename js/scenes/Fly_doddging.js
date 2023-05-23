@@ -51,6 +51,8 @@ var MiniScreenScene = new Phaser.Class({
 class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
+		this.puntuacion = 0;
+		this.priceU=200;
     }
 
     preload() {
@@ -62,6 +64,12 @@ class GameScene extends Phaser.Scene {
     create() {
 		this.cameras.main.setBackgroundColor(0x89BCEB);
 		this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
+		this.puntuacionText = this.add.text(16, 16, 'Score: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
+        this.puntuacionText.setText("Score: " + this.puntuacion);
+        this.preuText = this.add.text(16, 50, 'Price Upgrade: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
+        this.preuText.setText("Price Upgrade: " + this.priceU)
+
+
         this.globo = this.physics.add.sprite(400, 100, 'globo');
         this.globo.setCollideWorldBounds(true);
         this.globo.setBounce(0.2);
@@ -95,6 +103,12 @@ class GameScene extends Phaser.Scene {
             callbackScope: this,
             loop: true,
         });
+
+		window.addEventListener("keydown", function (e) {
+			if (e.code === "Space" && e.target === document.body) {
+				e.preventDefault();
+			}
+		});
     }
 
     update() {
@@ -105,7 +119,9 @@ class GameScene extends Phaser.Scene {
             // Comprueba si hay colisión entre el globo y los misiles
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), missile.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
-                console.log('Colisión con el globo');
+                this.puntuacion -= 20; // Incrementa la puntuación por cada globo guardado
+				if(this.puntuacion<0) this.puntuacion=0;
+				this.puntuacionText.setText('Score: ' + this.puntuacion);
 				missile.destroy();
             }
 
@@ -120,7 +136,8 @@ class GameScene extends Phaser.Scene {
             // Comprueba si hay colisión entre el globo y los misiles
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), fitxer.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
-                console.log('Colisión con el globo');
+                this.puntuacion += 50; // Incrementa la puntuación por cada globo guardado
+        		this.puntuacionText.setText('Score: ' + this.puntuacion); // Actualiza el texto de puntuación
 				fitxer.destroy();
             }
 

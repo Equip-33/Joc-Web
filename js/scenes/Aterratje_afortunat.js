@@ -52,7 +52,7 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
         this.velocitat = 200;
-        this.delayB = 3000
+        this.delayB = 3000;
         this.puntuacion = 0;
         this.priceU=200;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createBombas
