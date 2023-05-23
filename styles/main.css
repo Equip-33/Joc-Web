@@ -16,6 +16,7 @@ body{
 	font-size: 3rem;
 	font-weight: bold;
 	line-height: 2rem;
+	grid-column: 2;
 }
 
 @font-face {
@@ -37,12 +38,13 @@ body{
 	left:50%;
 	transform: translate(-50%,-70%);
 	justify-content: center;
-	grid-template-columns:  max-content;
-	grid-template-rows: auto auto auto auto;
+	grid-template-columns:  1fr 30rem 1fr;
 	row-gap:0.5rem;
+	align-content: center;
 }
 
 .menu-object{
+	grid-column: 2;
 	width: 18.75rem;
 	height: 4.688rem;
 	font-size: 1rem;
@@ -101,12 +103,6 @@ button.menu-object:hover:not(:active){
 	background-color: #b96052;
 }
 
-.logo{
-	position:absolute;	
-    left:50%;
-	top:-30%;
-	transform: translate(-50%,0%);
-}
 
 @keyframes animacioLletres {
 	0% {
@@ -116,6 +112,14 @@ button.menu-object:hover:not(:active){
 		rotate: 360deg;
 	}
   }
+
+svg{
+	grid-column: 2;
+	width: 15rem;
+	height: 15rem;
+	margin: auto;
+	align-content: center;
+}
 
 svg .lletres{
 	transform-origin: center;
