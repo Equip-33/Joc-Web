@@ -104,22 +104,3 @@ button.menu-object:hover:not(:active){
 	color: #994538;
 	*/
 }
-
-.logo{
-	margin: auto;
-	height: 10rem;
-	width: 10rem;
-	transition: all 2s;
-}
-
-.logo:hover{
-	transform: rotate(60deg);
-}
-
-.plataforma{
-	transition: all 2s;
-}
-
-.plataforma:hover{
-	transform: rotate(60deg);
-}
