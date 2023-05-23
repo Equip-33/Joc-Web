@@ -106,11 +106,27 @@ class GameScene extends Phaser.Scene {
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), missile.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
                 console.log('Colisión con el globo');
+				missile.destroy();
             }
 
             // Elimina los misiles que salen de la pantalla
             if (missile.x < -missile.width) {
                 missile.destroy();
+            }
+        }, this);
+
+		this.fitxers.getChildren().forEach(function (fitxer) {
+
+            // Comprueba si hay colisión entre el globo y los misiles
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), fitxer.getBounds())) {
+                // Aquí puedes agregar el código para manejar la colisión
+                console.log('Colisión con el globo');
+				fitxer.destroy();
+            }
+
+            // Elimina los misiles que salen de la pantalla
+            if (fitxer.x < -fitxer.width) {
+                fitxer.destroy();
             }
         }, this);
     }
