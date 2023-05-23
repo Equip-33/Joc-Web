@@ -8,21 +8,21 @@ var MiniScreenScene = new Phaser.Class({
 
     preload: function () {
         this.load.image('boton', '../resources/boton.png');
+        this.load.image('textInfo', '../resources/text_menu.png');
     },
 
     create: function () {
         // Agrega un rectángulo verde como fondo de la escena
-        var rect = this.add.rectangle(this.cameras.main.centerX-400, this.cameras.main.centerY-400, 800, 800, 0xe69a9a, 0.7);
+        var rect = this.add.rectangle(this.cameras.main.centerX-300, this.cameras.main.centerY-300, 600, 600, 0xe69a9a, 0.7);
         rect.setOrigin(0);
         rect.setStrokeStyle(4, 0xffffff);// Agrega un borde al rectángulo
-
-        const buttonExit = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 200, 'boton');
+        this.textIn = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height-500, 'textInfo');
+        this.textIn.setScale(0.4);
+        const buttonExit = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 300, 'boton');
         buttonExit.text
-		buttonExit.scaleX = .2;
-		buttonExit.scaleY = .2;
+		buttonExit.scaleX = .5;
+		buttonExit.scaleY = .5;
         buttonExit.setInteractive();
-        const buttonTextE = this.add.text(0, 0, 'EXIT', { fontSize: '64px', fill: '#000', fontWeight: 'bold', fontFamily: 'Valo'});
-        Phaser.Display.Align.In.Center(buttonTextE, buttonExit);
         buttonExit.on('pointerdown', () => {
 			this.closeMiniScreen()
         });
