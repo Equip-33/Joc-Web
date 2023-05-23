@@ -99,10 +99,13 @@ button.menu-object:hover:not(:active){
 	width: 20.313rem;
 	height: 5.313rem;
 	background-color: #b96052;
-	/*color: #aa4f42;
-	color:#b96052;
-	color: #994538;
-	*/
+}
+
+.logo{
+	position:absolute;	
+    left:50%;
+	top:-30%;
+	transform: translate(-50%,0%);
 }
 
 @keyframes animacioLletres {
