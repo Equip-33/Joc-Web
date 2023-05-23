@@ -199,5 +199,11 @@ class GameScene extends Phaser.Scene {
                 object.destroy();
             }
         }, this);
+        this.globus.getChildren().forEach(function (object) {
+            // Verifica si el objeto ha tocado el final de la pantalla
+            if (object.y >= this.sys.game.config.height) {
+                object.destroy();
+            }
+        }, this);
     }
 }
