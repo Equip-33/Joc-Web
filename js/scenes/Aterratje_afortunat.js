@@ -24,7 +24,7 @@ var MiniScreenScene = new Phaser.Class({
 		buttonExit.scaleY = .5;
         buttonExit.setInteractive();
         buttonExit.on('pointerdown', () => {
-			this.closeMiniScreen()
+			loadpage("../");
         });
 
         // Aquí puedes crear los elementos adicionales de la minipantalla
@@ -67,8 +67,10 @@ class GameScene extends Phaser.Scene {
 
     create() {
         this.cameras.main.setBackgroundColor(0x89BCEB);
-        this.puntuacionText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
-        this.preuText = this.add.text(16, 50, 'Price Upgrade: 200', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
+        this.puntuacionText = this.add.text(16, 16, 'Score: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
+        this.puntuacionText.setText("Score: " + this.puntuacion);
+        this.preuText = this.add.text(16, 50, 'Price Upgrade: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
+        this.preuText.setText("Price Upgrade: " + this.priceU)
         this.plataforma = this.physics.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY / 3, 'plataforma');
         this.plataforma.setImmovable(true);
         this.plataforma.setCollideWorldBounds(true);
