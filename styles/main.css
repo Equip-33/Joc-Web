@@ -104,3 +104,23 @@ button.menu-object:hover:not(:active){
 	color: #994538;
 	*/
 }
+
+@keyframes animacion-svg {
+	0% {
+	  rotate: 100deg;
+	}
+	50% {
+	  fill: blue; /* Estilo intermedio del color de relleno */
+	}
+	100% {
+	  fill: green; /* Estilo final del color de relleno */
+	}
+  }
+
+.logo .lletres{
+	transform-origin: center;
+}
+
+.logo:hover .lletres{
+	animation: animacion-svg 1s infinite;
+}
