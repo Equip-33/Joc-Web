@@ -54,7 +54,7 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bomba', '../resources/bomba.png');
+		this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
 		this.load.image('fitxer', '../resources/Fitxer.png');
     }
