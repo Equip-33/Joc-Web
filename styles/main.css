@@ -107,20 +107,20 @@ button.menu-object:hover:not(:active){
 
 @keyframes animacion-svg {
 	0% {
-	  rotate: 100deg;
+	  rotate: 0deg;
 	}
 	50% {
 	  fill: blue; /* Estilo intermedio del color de relleno */
 	}
 	100% {
-	  fill: green; /* Estilo final del color de relleno */
+		rotate: 360deg;
 	}
   }
 
-.logo .lletres{
+svg .lletres{
 	transform-origin: center;
 }
 
-.logo:hover .lletres{
-	animation: animacion-svg 1s infinite;
+svg:hover .lletres{
+	animation: animacion-svg 6s infinite linear;
 }
