@@ -111,7 +111,61 @@ button.menu-object:hover:not(:active){
 	100% {
 		rotate: 360deg;
 	}
-  }
+}
+
+@keyframes animacioFitxer {
+	0% {
+		transform: translate(0,0);
+	}
+	25% {
+		rotate: 60deg;
+	}
+	50% {
+		rotate: 0deg;
+	}
+	75% {
+		rotate: -60deg;
+	}
+	100% {
+		transform: translate(20px,0);
+	}
+}
+
+@keyframes animacioPlataforma {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(5px);
+	}
+	50% {
+		transform: translateX(0px);
+	}
+	75% {
+		transform: translateX(-4.8px);
+	}
+	100% {
+		transform: translateX(0px);
+	}
+}
+
+@keyframes animacioGlobus {
+	0% {
+		transform: translateY(0);
+	}
+	25% {
+		transform: translateY(5px);
+	}
+	50% {
+		transform: translateY(0px);
+	}
+	75% {
+		transform: translateY(-4.8px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
 
 svg{
 	grid-column: 2;
@@ -127,4 +181,16 @@ svg .lletres{
 
 svg:hover .lletres{
 	animation: animacioLletres 5.5s infinite linear;
+}
+
+svg:hover .plataforma{
+	animation: animacioPlataforma 2.5s infinite linear;
+}
+
+svg:hover .globus{
+	animation: animacioGlobus 2.5s infinite linear;
+}
+
+svg:hover .fitxer{
+	animation: animacioFitxer 2.5s infinite linear;
 }
