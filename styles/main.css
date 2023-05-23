@@ -113,21 +113,26 @@ button.menu-object:hover:not(:active){
 	}
 }
 
-@keyframes animacioFitxer {
-	0% {
-		transform: translate(0,0);
+@keyframes animacioFitxer{
+	0%{
+		transform: translateX(0);
+		transform: translateY(0);
 	}
-	25% {
-		rotate: 60deg;
+	25%{
+		transform: translateX(50px);
+		transform: translateY(50px);
 	}
-	50% {
-		rotate: 0deg;
+	50%{
+		transform: translateX(0);
+		transform: translateY(0);
 	}
-	75% {
-		rotate: -60deg;
+	75%{
+		transform: translateX(50px);
+		transform: translateY(50px);
 	}
 	100% {
-		transform: translate(20px,0);
+		transform: translateX(0);
+		transform: translateY(0);
 	}
 }
 
@@ -154,13 +159,13 @@ button.menu-object:hover:not(:active){
 		transform: translateY(0);
 	}
 	25% {
-		transform: translateY(5px);
+		transform: translateY(7px);
 	}
 	50% {
 		transform: translateY(0px);
 	}
 	75% {
-		transform: translateY(-4.8px);
+		transform: translateY(-5.5px);
 	}
 	100% {
 		transform: translateY(0px);
