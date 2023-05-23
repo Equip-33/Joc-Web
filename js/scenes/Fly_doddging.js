@@ -59,8 +59,8 @@ class GameScene extends Phaser.Scene {
 
         var missile = this.missiles.create(x, y, 'bomba');
 		missile.setVelocityX(-200);
-		missile.setScale(0.2);
-		missile.setRotation(90); // Rota el misil 180 grados en sentido antihorario
+		missile.setScale(0.4);
+		missile.setAngle(90);
         missile.setImmovable();
     }
 }
