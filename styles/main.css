@@ -105,12 +105,9 @@ button.menu-object:hover:not(:active){
 	*/
 }
 
-@keyframes animacion-svg {
+@keyframes animacioLletres {
 	0% {
 	  rotate: 0deg;
-	}
-	50% {
-	  fill: blue; /* Estilo intermedio del color de relleno */
 	}
 	100% {
 		rotate: 360deg;
@@ -122,5 +119,5 @@ svg .lletres{
 }
 
 svg:hover .lletres{
-	animation: animacion-svg 6s infinite linear;
+	animation: animacioLletres 5.5s infinite linear;
 }
