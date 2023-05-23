@@ -6,6 +6,7 @@ class GameScene extends Phaser.Scene {
     preload() {
         this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
+		this.load.image('fitxer', '../resources/Fitxer.png');
     }
 
     create() {
@@ -21,6 +22,8 @@ class GameScene extends Phaser.Scene {
         // Crea los misiles
         this.missiles = this.physics.add.group();
 
+		this.fitxers = this.physics.add.group();
+
         // Agrega el evento de teclado para la barra espaciadora
         this.input.keyboard.on('keydown-SPACE', function () {
             this.globo.setVelocityY(-300); // Aplica una fuerza hacia arriba cuando se presiona la barra espaciadora
@@ -30,6 +33,14 @@ class GameScene extends Phaser.Scene {
         this.time.addEvent({
             delay: 1000,
             callback: this.createMissile,
+            callbackScope: this,
+            loop: true,
+        });
+
+		// Genera archivos cada 3 segundo
+        this.time.addEvent({
+            delay: 3000,
+            callback: this.createFile,
             callbackScope: this,
             loop: true,
         });
@@ -62,5 +73,15 @@ class GameScene extends Phaser.Scene {
 		missile.setScale(0.4);
 		missile.setAngle(90);
         missile.setImmovable();
+    }
+
+	createFile() {
+        var x = this.game.config.width;
+        var y = Phaser.Math.Between(100, this.game.config.height - 100);
+
+        var fitxer = this.fitxers.create(x, y, 'fitxer');
+		fitxer.setVelocityX(-400);
+		fitxer.setScale(0.6);
+        fitxer.setImmovable();
     }
 }
