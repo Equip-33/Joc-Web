@@ -1,3 +1,53 @@
+// Escena de la minipantalla
+var MiniScreenScene = new Phaser.Class({
+    Extends: Phaser.Scene,
+
+    initialize: function MiniScreenScene() {
+        Phaser.Scene.call(this, { key: 'MiniScreen' });
+    },
+
+    preload: function () {
+        this.load.image('boton', '../resources/boton.png');
+        this.load.image('textInfo', '../resources/text_menu.png');
+    },
+
+    create: function () {
+        // Agrega un rectángulo verde como fondo de la escena
+        var rect = this.add.rectangle(this.cameras.main.centerX-300, this.cameras.main.centerY-300, 600, 600, 0xe69a9a, 0.7);
+        rect.setOrigin(0);
+        rect.setStrokeStyle(4, 0xffffff);// Agrega un borde al rectángulo
+        this.textIn = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height-500, 'textInfo');
+        this.textIn.setScale(0.4);
+        const buttonExit = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 300, 'boton');
+        buttonExit.text
+		buttonExit.scaleX = .5;
+		buttonExit.scaleY = .5;
+        buttonExit.setInteractive();
+        buttonExit.on('pointerdown', () => {
+			loadpage("../");
+        });
+
+        // Aquí puedes crear los elementos adicionales de la minipantalla
+        // Por ejemplo, puedes agregar texto, botones, etc.
+
+        // Agrega un evento de teclado para la tecla Escape (para cerrar la minipantalla)
+        this.input.keyboard.on('keydown-ESC', this.closeMiniScreen, this);
+    },
+
+    closeMiniScreen: function () {
+        // Reanuda la escena anterior
+        this.scene.resume('GameScene');
+
+        // Habilita el procesamiento de entrada de la escena anterior
+        this.scene.get('GameScene').input.enabled = true;
+
+        // Destruye la escena de la minipantalla
+        this.scene.remove('MiniScreen');    
+    }
+
+    // Resto del código de la escena de la minipantalla...
+});
+
 class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
@@ -11,6 +61,7 @@ class GameScene extends Phaser.Scene {
 
     create() {
 		this.cameras.main.setBackgroundColor(0x89BCEB);
+		this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
         this.globo = this.physics.add.sprite(400, 100, 'globo');
         this.globo.setCollideWorldBounds(true);
         this.globo.setBounce(0.2);
@@ -83,5 +134,16 @@ class GameScene extends Phaser.Scene {
 		fitxer.setVelocityX(-400);
 		fitxer.setScale(0.6);
         fitxer.setImmovable();
+    }
+
+	showMiniScreen() {
+        // Crea una nueva escena para la minipantalla
+        if (!this.scene.isActive('MiniScreen')) {
+            var miniScreenScene = this.scene.add('MiniScreen', MiniScreenScene, true);
+            // Pausa la escena actual
+            this.scene.pause();
+            // Deshabilita el procesamiento de entrada de la escena actual
+            this.input.enabled = false;
+        }
     }
 }
