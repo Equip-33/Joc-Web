@@ -67,10 +67,10 @@ class GameScene extends Phaser.Scene {
     create() {
 		this.cameras.main.setBackgroundColor(0x89BCEB);
 		this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
-		this.puntuacionText = this.add.text(16, 16, 'Score: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
-        this.puntuacionText.setText("Score: " + this.puntuacion);
-        this.preuText = this.add.text(16, 50, 'Price Upgrade: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
-        this.preuText.setText("Price Upgrade: " + this.priceU)
+		this.puntuacionText = this.add.text(16, 16, '', { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
+        this.updatePuntuacionText();
+        this.preuText = this.add.text(16, 50, '', { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
+        this.updatePreuText();
 
         const button = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 200, 'millora');
 		button.scaleX = .2;
@@ -132,7 +132,7 @@ class GameScene extends Phaser.Scene {
                 // Aquí puedes agregar el código para manejar la colisión
                 this.puntuacion -= 20; // Incrementa la puntuación por cada globo guardado
 				if(this.puntuacion<0) this.puntuacion=0;
-				this.puntuacionText.setText('Score: ' + this.puntuacion);
+				this.updatePuntuacionText();
 				missile.destroy();
             }
 
@@ -148,7 +148,7 @@ class GameScene extends Phaser.Scene {
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), fitxer.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
                 this.puntuacion += 50; // Incrementa la puntuación por cada globo guardado
-        		this.puntuacionText.setText('Score: ' + this.puntuacion); // Actualiza el texto de puntuación
+        		this.updatePuntuacionText(); // Actualiza el texto de puntuación
 				fitxer.destroy();
             }
 
@@ -164,8 +164,8 @@ class GameScene extends Phaser.Scene {
             this.delayB+=2000;
             this.puntuacion-=200;
             this.priceU+=100;
-            this.puntuacionText.setText('Score: ' + this.puntuacion); // Actualiza el texto de puntuación
-            this.preuText.setText('Price Upgrade: ' + this.priceU);
+            this.updatePuntuacionText();
+            this.updatePreuText();
             if (this.bombasEvent) {
                 // Si hay un evento createMissile activo, lo eliminamos
                 this.time.removeEvent(this.bombasEvent);
@@ -224,5 +224,13 @@ class GameScene extends Phaser.Scene {
             // Deshabilita el procesamiento de entrada de la escena actual
             this.input.enabled = false;
         }
+    }
+
+    updatePuntuacionText() {
+        this.puntuacionText.setText('Score: ' + this.puntuacion);
+    }
+    
+    updatePreuText() {
+        this.preuText.setText('Price Upgrade: ' + this.priceU);
     }
 }
