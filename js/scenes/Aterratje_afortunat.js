@@ -8,7 +8,7 @@ var MiniScreenScene = new Phaser.Class({
 
     preload: function () {
         this.load.image('boton', '../resources/boton.png');
-        this.load.image('textInfo', '../resources/text_menu.png');
+        this.load.image('textInfo', '../resources/text_pauseAF.png');
     },
 
     create: function () {
