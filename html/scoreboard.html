@@ -8,7 +8,9 @@
 	<body>
 		<div class="menu-container2" id="scores_id">
 			<p class="menu-object" id="title">Score Board</p>
+			<hr>
 			<p class="menu-object" id="title2">Aterratge Afortunat</p>
+			<p class="menu-object" id="title3">Fly Dondging</p>
 			<table class="taulaE">
 				<thead>
 					<tr>
@@ -25,7 +27,6 @@
 					<td> {{score.punts}}</td>
 				</tr>
 			</table>
-			<p class="menu-object" id="title3">Fly Dondging</p>
 			<table class="taulaD">
 				<thead>
 					<tr>
@@ -41,14 +42,18 @@
 					<td> Nuria </td>
 					<td> Laia </td>
 				</tr>
+				<tr>
+					<td> Nuria </td>
+					<td> Laia </td>
+				</tr>
 				<tr v-for="(score, indx) in scoresFD.slice(0, 10)">
 					<td> {{score.username}}</td>
 					<td> {{score.punts}}</td>
 				</tr>
 			</table>
+			<hr>
 			<button class="menu-object" v-on:click="exit"> Go to menu </button>
 		</div>
-		
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 	<script src="../js/scores.js"></script>

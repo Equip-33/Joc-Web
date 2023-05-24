@@ -9,31 +9,29 @@ input[type=number]{
 table{
 	grid-column: 2;
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+
 	border-collapse: collapse;
-	border-bottom: 2px solid;
-	border-width: 0.2rem;
-	border-color:#aa4f42;
 }
 
 .taulaE{
-	grid-column: 1 / span 2;
-	border-right: 2px solid;
-	border-width: 0.2rem;
-	border-color:white;
+	height: min-content;
+	grid-column: 2;
+	border-right: 2px solid white;
+	border-width: 0.3rem;
+	border-collapse: collapse;
 }
 
 .taulaD{
-	grid-column: 3 / span 4;
+	border-left: 2px solid white;
+	border-width: 0.3rem;
+	height: min-content;
+	grid-column: 3;
 }
 
 
 th{
 	font-family: Valo;
 	text-align: center;
-	color:white;
-	font-size: 1.5rem;
 	font-weight: lighter;
 }
 
@@ -48,9 +46,10 @@ td{
 	font-size: 1.1rem;
 	font-weight: lighter;
 	width: 23rem;
-	border-bottom: 2px solid;
+	border-bottom: 2px dashed #b36b6b;
 	border-width: 0.2rem;
-	border-color:#aa4f42;
+	border-color:#b36b6b;
+	height: 2rem;
 }
 
 th{
@@ -59,18 +58,20 @@ th{
 	color:white;
 	font-size: 1.5rem;
 	font-weight: lighter;
-	width: 23rem;
-	border-bottom: 2px solid;
-	border-width: 0.2rem;
-	border-color:white;
+	border-bottom: 2px double white;
+	border-width: 0.45rem;
 }
 
+hr{
+	grid-column: 1 / span 4;
+	width: 70rem;
+	border: 0.2rem solid #994538;
+	border-radius: 1rem;
+}
 
 body{
 	background-color: #e69a9a;
 }
-
-
 
 #title{
 	font-family: Valo;
@@ -85,7 +86,7 @@ body{
 	font-family: Valo;
 	font-size: 1.5rem;
 	font-weight: bold;
-	grid-column: 1 / span 2;
+	grid-column: 2;
 	height: auto;
 	margin-bottom: 1rem;
 }
@@ -95,8 +96,8 @@ body{
 	font-family: Valo;
 	font-size: 1.5rem;
 	font-weight: bold;
-	grid-column: 3 / span 4;
-	grid-row: 2 ;
+	grid-column: 3 ;
+	
 	height: auto;
 	margin-bottom: 1rem;
 }
@@ -125,6 +126,7 @@ body{
 	align-content: center;
 }
 
+
 .menu-container2{
 	display: grid;
 	position:absolute;	
@@ -132,7 +134,8 @@ body{
 	left:50%;
 	transform: translate(-50%,-50%);
 	justify-content: center;
-	grid-template-columns:  1fr 30rem 30rem 1fr;
+	grid-template-columns: 1fr 30rem 30rem 1fr;
+	grid-template-rows: auto auto auto;
 	row-gap:0.5rem;
 	align-content: center;
 }
