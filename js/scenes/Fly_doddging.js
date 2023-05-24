@@ -65,6 +65,7 @@ class GameScene extends Phaser.Scene {
 		this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
 		this.load.image('fitxer', '../resources/Fitxer.png');
+        this.load.image('nuvol', '../resources/nuvol.png');
         this.load.image('millora', '../resources/millora.png');
     }
 
@@ -104,6 +105,8 @@ class GameScene extends Phaser.Scene {
 
 		this.fitxers = this.physics.add.group();
 
+        this.nuvols = this.physics.add.group();
+
         // Agrega el evento de teclado para la barra espaciadora
         this.input.keyboard.on('keydown-SPACE', function () {
             this.globo.setVelocityY(-300); // Aplica una fuerza hacia arriba cuando se presiona la barra espaciadora
@@ -121,6 +124,14 @@ class GameScene extends Phaser.Scene {
         this.time.addEvent({
             delay: 3000,
             callback: this.createFile,
+            callbackScope: this,
+            loop: true,
+        });
+
+        // Genera nuvol cada 5 segundo
+        this.time.addEvent({
+            delay: 3000,
+            callback: this.createNuvol,
             callbackScope: this,
             loop: true,
         });
@@ -163,6 +174,20 @@ class GameScene extends Phaser.Scene {
             // Elimina los misiles que salen de la pantalla
             if (fitxer.x < -fitxer.width) {
                 fitxer.destroy();
+            }
+        }, this);
+
+        this.nuvols.getChildren().forEach(function (nuvol) {
+
+            // Comprueba si hay colisión entre el globo y los misiles
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), nuvol.getBounds())) {
+                // Aquí puedes agregar el código para manejar la colisión
+                
+            }
+
+            // Elimina los misiles que salen de la pantalla
+            if (nuvol.x < -nuvol.width) {
+                nuvol.destroy();
             }
         }, this);
 
@@ -233,7 +258,15 @@ class GameScene extends Phaser.Scene {
             });
         }
     }
+    createNuvol(){
+        var x = this.game.config.width;
+        var y = Phaser.Math.Between(100, this.game.config.height - 100);
 
+        var nuvol = this.nuvols.create(x, y, 'nuvol');
+		nuvol.setVelocityX(-100);
+		nuvol.setScale(0.4);
+        nuvol.setImmovable();
+    }
 	createFile() {
         var x = this.game.config.width;
         var y = Phaser.Math.Between(100, this.game.config.height - 100);
