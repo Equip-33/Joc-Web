@@ -203,7 +203,7 @@ class GameScene extends Phaser.Scene {
         }
     }
 
-    update() {
+    update(time, delta) {
         this.bombas.getChildren().forEach(function (object) {
             // Verifica si el objeto ha tocado el final de la pantalla
             if (object.y >= this.sys.game.config.height) {
