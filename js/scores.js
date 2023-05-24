@@ -2,17 +2,22 @@ var load_objS = function(){
 	var vue_instance = new Vue({
 		el: "#scores_id",
 		data: {
-			scores: []
+			scoresAA: [],
+			scoresFD: []
 		},
 		created: function(){
-			let arrayScores = [];
-			console.log(localStorage);
-			if(localStorage.scores){
-				arrayScores = JSON.parse(localStorage.scores);
-				if(!Array.isArray(arrayScores)) arrayScores = [];
+			let arrayScoresAA = [];
+			if(localStorage.scoresAA){
+				arrayScoresAA = JSON.parse(localStorage.scoresAA);
+				if(!Array.isArray(arrayScoresAA)) arrayScoresAA = [];
 			}
-			this.scores = arrayScores;
-			console.log(this.scores);
+			this.scoresAA = arrayScoresAA;
+			let arrayScoresFD = [];
+			if(localStorage.scoresFD){
+				arrayScoresFD = JSON.parse(localStorage.scoresFD);
+				if(!Array.isArray(arrayScoresFD)) arrayScoresFD = [];
+			}
+			this.scoresFD = arrayScoresFD;
 		},
 	});
 	return {}; 

@@ -8,7 +8,15 @@
 	<body>
 		<div id="scores_id">
 			<p class="menu-object" id="title">Score Board</p>
-			<div v-for="(score, indx) in scores.slice(0, 10)">
+			<div v-for="(score, indx) in scoresAA.slice(0, 10)">
+				<div class="score-container">
+					<label class="score-label"></label>
+					<label class="score-label">{{score.username}}</label>
+					<label class="score-label">{{score.punts}}</label>
+					<label class="score-label"></label>
+				</div>
+			</div>
+			<div v-for="(score, indx) in scoresFD.slice(0, 10)">
 				<div class="score-container">
 					<label class="score-label"></label>
 					<label class="score-label">{{score.username}}</label>
