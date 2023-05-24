@@ -17,9 +17,11 @@ table{
 	border-color:#aa4f42;
 }
 
-
 .taulaE{
 	grid-column: 1 / span 2;
+	border-right: 2px solid;
+	border-width: 0.2rem;
+	border-color:white;
 }
 
 .taulaD{
@@ -39,10 +41,6 @@ th{
 	width: 45%;
 }
 
-#User{
-	
-}
-
 td{
 	font-family: Valo;
 	text-align: center;
@@ -50,6 +48,9 @@ td{
 	font-size: 1.1rem;
 	font-weight: lighter;
 	width: 23rem;
+	border-bottom: 2px solid;
+	border-width: 0.2rem;
+	border-color:#aa4f42;
 }
 
 th{
@@ -59,7 +60,11 @@ th{
 	font-size: 1.5rem;
 	font-weight: lighter;
 	width: 23rem;
+	border-bottom: 2px solid;
+	border-width: 0.2rem;
+	border-color:white;
 }
+
 
 body{
 	background-color: #e69a9a;
@@ -76,6 +81,7 @@ body{
 }
 
 #title2{
+	color: #994538;
 	font-family: Valo;
 	font-size: 1.5rem;
 	font-weight: bold;
@@ -85,6 +91,7 @@ body{
 }
 
 #title3{
+	color: #994538;
 	font-family: Valo;
 	font-size: 1.5rem;
 	font-weight: bold;
@@ -131,7 +138,6 @@ body{
 }
 
 
-
 p{
 	text-align: center;
 }
@@ -145,7 +151,6 @@ button{
 	background-color: #994538;
 	color: white;
 	border-color: #aa4f42;
-	grid-column: 2;
 }
 
 .menu-object{
