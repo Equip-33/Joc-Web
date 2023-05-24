@@ -77,6 +77,11 @@ class GameScene extends Phaser.Scene {
         this.preuText = this.add.text(16, 50, '', { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
         this.updatePreuText();
 
+        this.nuvolRect = this.add.rectangle(0, 0, this.game.config.width, this.game.config.height, 0x000000, 0.5);
+        this.nuvolRect.setOrigin(0);
+        this.nuvolRect.setDepth(1); // Asegura que el recuadro esté por encima de otros elementos de la escena
+        this.nuvolRect.setVisible(false); // Inicialmente oculto
+
         const button = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 200, 'millora');
 		button.scaleX = .2;
 		button.scaleY = .2;
@@ -128,9 +133,9 @@ class GameScene extends Phaser.Scene {
             loop: true,
         });
 
-        // Genera nuvol cada 5 segundo
+        // Genera nuvol cada 2 segundo
         this.time.addEvent({
-            delay: 3000,
+            delay: 2000,
             callback: this.createNuvol,
             callbackScope: this,
             loop: true,
@@ -182,14 +187,22 @@ class GameScene extends Phaser.Scene {
             // Comprueba si hay colisión entre el globo y los misiles
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), nuvol.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
-                
+                this.nuvolRect.setVisible(true);
             }
-
             // Elimina los misiles que salen de la pantalla
             if (nuvol.x < -nuvol.width) {
                 nuvol.destroy();
             }
         }, this);
+
+        if (this.malRectangle.visible) {
+            // Controla la duración del recuadro transparente
+            this.malTimer += delta;
+            if (this.malTimer >= 1) {
+                this.malRectangle.setVisible(false); // Oculta el recuadro transparente
+                this.malTimer = 0; // Reinicia el temporizador
+            }
+        }
 
         this.gameTime += delta / 1000; // Divide por 1000 para obtener el tiempo en segundos
 
@@ -263,7 +276,7 @@ class GameScene extends Phaser.Scene {
         var y = Phaser.Math.Between(100, this.game.config.height - 100);
 
         var nuvol = this.nuvols.create(x, y, 'nuvol');
-		nuvol.setVelocityX(-100);
+		nuvol.setVelocityX(-200);
 		nuvol.setScale(0.4);
         nuvol.setImmovable();
     }
