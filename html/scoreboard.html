@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<link rel="stylesheet" href="../styles/main.css">
+		<script src="../js/loader.js"></script>
+		<title> My first game - Load </title>
+	</head>
+	<body>
+		<div id="scores_id">
+			<p class="menu-object" id="title">Score Board</p>
+			<div v-for="(score, indx) in scores.slice(0, 10)">
+				<div class="score-container">
+					<label class="score-label"></label>
+					<label class="score-label">{{score.username}}</label>
+					<label class="score-label">{{score.punts}}</label>
+					<label class="score-label"></label>
+				</div>
+			</div>
+		</div>
+		<a class="menu-object" href="../">GoToMenu</a>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+	<script src="../js/scores.js"></script>
+</html>
+

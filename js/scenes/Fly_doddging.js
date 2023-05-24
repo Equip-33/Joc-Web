@@ -58,7 +58,8 @@ class GameScene extends Phaser.Scene {
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createMissile
         this.nuvolTimer = 0;
         this.gameTime = 0;
-        this.gameDuration = 120 ; // 2 minutos 
+        this.gameDuration = 10 ; // 2 minutos 
+        this.user="";
     }
 
     preload() {
@@ -71,6 +72,7 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
+        this.user = sessionStorage.getItem("playerName","unknown");
 		this.cameras.main.setBackgroundColor(0x89BCEB);
 		this.input.keyboard.on('keydown-ESC', this.showMiniScreen, this);
 		this.puntuacionText = this.add.text(16, 16, '', { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
@@ -317,7 +319,7 @@ class GameScene extends Phaser.Scene {
         const gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, 'Time Out', { fontSize: '64px', fill: '#000', fontFamily: 'Valo' });
         gameOverText.setOrigin(0.5);
 
-        const scoreText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Final Score: ' + this.puntsTotals, { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
+        const scoreText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Final Score of ' + this.user + ": " + this.puntsTotals, { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
         scoreText.setOrigin(0.5);
 
         const exitButton = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 100, 'boton');
@@ -325,6 +327,29 @@ class GameScene extends Phaser.Scene {
         exitButton.scaleY = 0.5;
         exitButton.setInteractive();
         exitButton.on('pointerdown', () => {
+            let scoreP = {
+                punts: this.puntsTotals,
+                username: this.user
+             };
+            let arrayScores = [];
+            if (localStorage.scores) {
+                arrayScores = JSON.parse(localStorage.scores);
+            if (!Array.isArray(arrayScores)) {
+                arrayScores = [];
+            } else {
+                let scoreExistente = arrayScores.find(scoreP => this.user === scoreP.username && this.puntsTotals > scoreP.punts);
+                if (scoreExistente) {
+                Object.assign(scoreExistente, scoreF);
+                } else {
+                    arrayScores.push(scoreP);
+                }
+            }
+            } else {
+                arrayScores.push(scoreP);
+            }
+            arrayScores.sort((a, b) => b.punts - a.punts);
+            console.log(arrayScores);
+            localStorage.scores = JSON.stringify(arrayScores);
             loadpage("../");
         });
     }
