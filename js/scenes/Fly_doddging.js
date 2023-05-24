@@ -57,10 +57,11 @@ class GameScene extends Phaser.Scene {
         this.delayB = 2000;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createMissile
         this.gameTime = 0;
-        this.gameDuration = 5 * 60 * 1000; // 5 minutos en milisegons
+        this.gameDuration = 10 ; // 5 minutos en milisegons
     }
 
     preload() {
+        this.load.image('boton', '../resources/boton.png');
 		this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
 		this.load.image('fitxer', '../resources/Fitxer.png');
@@ -125,7 +126,7 @@ class GameScene extends Phaser.Scene {
         });
     }
 
-    update() {
+    update(time, delta) {
         // Mueve los misiles hacia la izquierda
         this.missiles.getChildren().forEach(function (missile) {
             missile.x -= 5;
@@ -134,10 +135,10 @@ class GameScene extends Phaser.Scene {
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), missile.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
                 this.puntuacion -= 20; // Incrementa la puntuación por cada globo guardado
-                puntsTotals-=20;
+                this.puntsTotals-=20;
 				if(this.puntuacion<0) {
                     this.puntuacion=0; 
-                    puntsTotals+=20;
+                    this.puntsTotals+=20;
                 }
 				this.updatePuntuacionText();
 				missile.destroy();
@@ -166,18 +167,33 @@ class GameScene extends Phaser.Scene {
             }
         }, this);
 
-        this.gameTime += this.time.deltaTime;
+        this.gameTime += delta / 1000; // Divide por 1000 para obtener el tiempo en segundos
+        console.log(this.gameTime + " hasta: " + this.gameDuration);
 
         if (this.gameTime >= this.gameDuration) {
             // Lógica para finalizar la partida
             this.showGameOverScreen();
+            this.destroyGameObjects();
         }
+    }
+
+
+    destroyGameObjects() {
+        // Destruye todos los misiles
+        this.missiles.getChildren().forEach(function (missile) {
+            missile.destroy();
+        });
+    
+        // Destruye todos los archivos
+        this.fitxers.getChildren().forEach(function (fitxer) {
+            fitxer.destroy();
+        });
     }
 
     compraMillora(){
         if(this.puntuacion>=this.priceU){
             this.delayB+=2000;
-            this.puntuacion-=200;
+            this.puntuacion-=this.priceU;
             this.priceU+=100;
             this.updatePuntuacionText();
             this.updatePreuText();
@@ -250,10 +266,9 @@ class GameScene extends Phaser.Scene {
     }
 
     showGameOverScreen() {
-        // Se pausa la escena actual y se muestra un texto, un botón de reinicio, etc.
-        this.scene.pause();
-        this.input.enabled = false;
-
+        this.time.removeAllEvents();
+        this.children.removeAll();
+        
         const gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, 'Game Over', { fontSize: '64px', fill: '#000', fontFamily: 'Valo' });
         gameOverText.setOrigin(0.5);
 
