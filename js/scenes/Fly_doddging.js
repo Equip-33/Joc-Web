@@ -323,8 +323,8 @@ class GameScene extends Phaser.Scene {
                 username: this.user
              };
             let arrayScores = [];
-            if (localStorage.scores) {
-                arrayScores = JSON.parse(localStorage.scores);
+            if (localStorage.scoresFD) {
+                arrayScores = JSON.parse(localStorage.scoresFD);
             if (!Array.isArray(arrayScores)) {
                 arrayScores = [];
             } else {
@@ -340,7 +340,7 @@ class GameScene extends Phaser.Scene {
             }
             arrayScores.sort((a, b) => b.punts - a.punts);
             console.log(arrayScores);
-            localStorage.scores = JSON.stringify(arrayScores);
+            localStorage.scoresFD = JSON.stringify(arrayScores);
             loadpage("../");
         });
     }

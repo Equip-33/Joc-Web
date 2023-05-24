@@ -244,6 +244,29 @@ class GameScene extends Phaser.Scene {
         exitButton.scaleY = 0.5;
         exitButton.setInteractive();
         exitButton.on('pointerdown', () => {
+            let scoreP = {
+                punts: this.puntsTotals,
+                username: this.user
+             };
+            let arrayScores = [];
+            if (localStorage.scoresAA) {
+                arrayScores = JSON.parse(localStorage.scoresAA);
+            if (!Array.isArray(arrayScores)) {
+                arrayScores = [];
+            } else {
+                let scoreExistente = arrayScores.find(scoreP => this.user === scoreP.username && this.puntsTotals > scoreP.punts);
+                if (scoreExistente) {
+                Object.assign(scoreExistente, scoreF);
+                } else {
+                    arrayScores.push(scoreP);
+                }
+            }
+            } else {
+                arrayScores.push(scoreP);
+            }
+            arrayScores.sort((a, b) => b.punts - a.punts);
+            console.log(arrayScores);
+            localStorage.scoresAA = JSON.stringify(arrayScores);
             loadpage("../");
         });
     }
