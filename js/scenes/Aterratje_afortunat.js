@@ -1,46 +1,46 @@
-// // Escena de la pantalla de pausa
-// var MiniScreenScene = new Phaser.Class({
-//     Extends: Phaser.Scene,
+// Escena de la pantalla de pausa
+var MiniScreenScene = new Phaser.Class({
+    Extends: Phaser.Scene,
 
-//     initialize: function MiniScreenScene() {
-//         Phaser.Scene.call(this, { key: 'MiniScreen' });
-//     },
+    initialize: function MiniScreenScene() {
+        Phaser.Scene.call(this, { key: 'MiniScreen' });
+    },
 
-//     preload: function () {
-//         this.load.image('boton', '../resources/boton.png');
-//         this.load.image('textInfo', '../resources/text_pauseAF.png');
-//     },
+    preload: function () {
+        this.load.image('boton', '../resources/boton.png');
+        this.load.image('textInfo', '../resources/text_pauseAF.png');
+    },
 
-//     create: function () {
-//         // Part visual de la pantalla de pausa
-//         var rect = this.add.rectangle(this.cameras.main.centerX-300, this.cameras.main.centerY-300, 600, 600, 0xe69a9a, 0.7);
-//         rect.setOrigin(0);
-//         rect.setStrokeStyle(4, 0xffffff);// Agrega un borde al rectángulo
-//         this.textIn = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height-575, 'textInfo');
-//         this.textIn.setScale(0.4);
-//         const buttonExit = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 300, 'boton');
-//         buttonExit.text
-// 		buttonExit.scaleX = .4;
-// 		buttonExit.scaleY = .4;
-//         buttonExit.setInteractive();
-//         buttonExit.on('pointerdown', () => {
-// 			loadpage("../");
-//         });
-//         // Agrega un evento de teclado para la tecla Escape (para cerrar la minipantalla)
-//         this.input.keyboard.on('keydown-ESC', this.closeMiniScreen, this);
-//     },
+    create: function () {
+        // Part visual de la pantalla de pausa
+        var rect = this.add.rectangle(this.cameras.main.centerX-300, this.cameras.main.centerY-300, 600, 600, 0xe69a9a, 0.7);
+        rect.setOrigin(0);
+        rect.setStrokeStyle(4, 0xffffff);// Agrega un borde al rectángulo
+        this.textIn = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height-575, 'textInfo');
+        this.textIn.setScale(0.4);
+        const buttonExit = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 300, 'boton');
+        buttonExit.text
+		buttonExit.scaleX = .4;
+		buttonExit.scaleY = .4;
+        buttonExit.setInteractive();
+        buttonExit.on('pointerdown', () => {
+			loadpage("../");
+        });
+        // Agrega un evento de teclado para la tecla Escape (para cerrar la minipantalla)
+        this.input.keyboard.on('keydown-ESC', this.closeMiniScreen, this);
+    },
 
-//     closeMiniScreen: function () {
-//         // Reanuda la escena anterior
-//         this.scene.resume('GameScene');
+    closeMiniScreen: function () {
+        // Reanuda la escena anterior
+        this.scene.resume('GameScene');
 
-//         // Habilita el procesamiento de entrada de la escena anterior
-//         this.scene.get('GameScene').input.enabled = true;
+        // Habilita el procesamiento de entrada de la escena anterior
+        this.scene.get('GameScene').input.enabled = true;
 
-//         // Destruye la escena de la minipantalla
-//         this.scene.remove('MiniScreen');    
-//     }
-// });
+        // Destruye la escena de la minipantalla
+        this.scene.remove('MiniScreen');    
+    }
+});
 
 class GameScene extends Phaser.Scene {
     constructor() {
