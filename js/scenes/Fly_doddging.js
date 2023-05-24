@@ -78,7 +78,7 @@ class GameScene extends Phaser.Scene {
         this.preuText = this.add.text(16, 50, '', { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
         this.updatePreuText();
 
-        this.nuvolRect = this.add.rectangle(0, 0, this.game.config.width, this.game.config.height, 0x000000, 0.5);
+        this.nuvolRect = this.add.rectangle(0, 0, this.game.config.width, this.game.config.height, 0xe2e7e8, 0.6);
         this.nuvolRect.setOrigin(0);
         this.nuvolRect.setDepth(1); // Asegura que el recuadro esté por encima de otros elementos de la escena
         this.nuvolRect.setVisible(false); // Inicialmente oculto
@@ -195,7 +195,7 @@ class GameScene extends Phaser.Scene {
                 nuvol.destroy();
             }
         }, this);
-        
+
         if (this.nuvolRect.visible) {
             // Controla la duración del recuadro transparente
             this.nuvolTimer += delta/1000;
@@ -278,7 +278,7 @@ class GameScene extends Phaser.Scene {
 
         var nuvol = this.nuvols.create(x, y, 'nuvol');
 		nuvol.setVelocityX(-200);
-		nuvol.setScale(0.4);
+		nuvol.setScale(0.7);
         nuvol.setImmovable();
     }
 	createFile() {
