@@ -68,7 +68,7 @@ class GameScene extends Phaser.Scene {
     create() {
         this.user = sessionStorage.getItem("playerName","unknown");
         this.cameras.main.setBackgroundColor(0x89BCEB);
-        this.add.image(0, 0, 'background').setOrigin(0).setScale(2,1.5)
+        this.add.image(0, 0, 'background').setOrigin(0).setScale(2,1.4)
         this.puntuacionText = this.add.text(16, 16, 'Score: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
         this.updatePuntuacionText();
         this.preuText = this.add.text(16, 50, 'Price Upgrade: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
