@@ -6,21 +6,41 @@
 		<title> ScoreBoard </title>
 	</head>
 	<body>
-		<div class="menu-container" id="scores_id">
+		<div class="menu-container2" id="scores_id">
 			<p class="menu-object" id="title">Score Board</p>
-			
-			<table>
+			<p class="menu-object" id="title2">Aterratge Afortunat</p>
+			<table class="taulaE">
 				<thead>
 					<tr>
 						<th class="table_header" id="User"> Username </th>
 						<th class="table_header" id="score"> Score </th>
 					</tr>
 				</thead>
+				<tr>
+					<td> Nuria </td>
+					<td> Laia </td>
+				</tr>
+				<tr v-for="(score, indx) in scoresAA.slice(0, 10)">
+					<td> {{score.username}}</td>
+					<td> {{score.punts}}</td>
+				</tr>
+			</table>
+			<p class="menu-object" id="title3">Fly Dondging</p>
+			<table class="taulaD">
+				<thead>
+					<tr>
+						<th class="table_header" id="User"> Username </th>
+						<th class="table_header" id="score"> Score </th>
+					</tr>
+				</thead>
+				<tr>
+					<td> Nuria </td>
+					<td> Laia </td>
+				</tr>
 				<tr v-for="(score, indx) in scoresFD.slice(0, 10)">
 					<td> {{score.username}}</td>
 					<td> {{score.punts}}</td>
 				</tr>
-				
 			</table>
 			<button class="menu-object" v-on:click="exit"> Go to menu </button>
 		</div>
