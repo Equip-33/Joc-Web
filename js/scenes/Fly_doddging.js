@@ -16,7 +16,7 @@ var MiniScreenScene = new Phaser.Class({
         var rect = this.add.rectangle(this.cameras.main.centerX-300, this.cameras.main.centerY-300, 600, 600, 0xe69a9a, 0.7);
         rect.setOrigin(0);
         rect.setStrokeStyle(4, 0xffffff);// Agrega un borde al rectángulo
-        this.textIn = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height-500, 'textInfo');
+        this.textIn = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height-575, 'textInfo');
         this.textIn.setScale(0.4);
         const buttonExit = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 300, 'boton');
         buttonExit.text
