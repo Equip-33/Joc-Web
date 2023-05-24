@@ -56,6 +56,7 @@ class GameScene extends Phaser.Scene {
 		this.priceU=200;
         this.delayB = 2000;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createMissile
+        this.nuvolTimer = 0;
         this.gameTime = 0;
         this.gameDuration = 120 ; // 2 minutos 
     }
@@ -194,13 +195,13 @@ class GameScene extends Phaser.Scene {
                 nuvol.destroy();
             }
         }, this);
-
-        if (this.malRectangle.visible) {
+        
+        if (this.nuvolRect.visible) {
             // Controla la duración del recuadro transparente
-            this.malTimer += delta;
-            if (this.malTimer >= 1) {
-                this.malRectangle.setVisible(false); // Oculta el recuadro transparente
-                this.malTimer = 0; // Reinicia el temporizador
+            this.nuvolTimer += delta/1000;
+            if (this.nuvolTimer >= 1) {
+                this.nuvolRect.setVisible(false); // Oculta el recuadro transparente
+                this.nuvolTimer = 0; // Reinicia el temporizador
             }
         }
 
