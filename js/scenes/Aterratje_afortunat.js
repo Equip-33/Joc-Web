@@ -118,7 +118,7 @@ class GameScene extends Phaser.Scene {
     compraMillora(){
         if(this.puntuacion>=this.priceU){
             this.delayB+=3000;
-            this.puntuacion-=200;
+            this.puntuacion-=this.priceU;
             this.priceU+=100;
             this.updatePuntuacionText(); // Actualiza el texto de puntuación
             this.updatePreuText();
