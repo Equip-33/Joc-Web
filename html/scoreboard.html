@@ -8,22 +8,18 @@
 	<body>
 		<div id="scores_id">
 			<p class="menu-object" id="title">Score Board</p>
-			<div v-for="(score, indx) in scoresAA.slice(0, 10)">
-				<div class="score-container">
-					<label class="score-label"></label>
-					<label class="score-label">{{score.username}}</label>
-					<label class="score-label">{{score.punts}}</label>
-					<label class="score-label"></label>
-				</div>
-			</div>
-			<div v-for="(score, indx) in scoresFD.slice(0, 10)">
-				<div class="score-container">
-					<label class="score-label"></label>
-					<label class="score-label">{{score.username}}</label>
-					<label class="score-label">{{score.punts}}</label>
-					<label class="score-label"></label>
-				</div>
-			</div>
+			<table>
+				<thead>
+					<tr>
+						<th class="table_header"> Username </th>
+						<th class="table_header"> Score </th>
+					</tr>
+				</thead>
+				<tr v-for="(score, indx) in scoresFD.slice(0, 10)">
+					<td> {{score.username}}</td>
+					<td>{{score.punts}}</td>
+				</tr>
+			</table>
 		</div>
 		<button class="menu-object" v-on:click="exit"> Go to menu </button>
 	</body>

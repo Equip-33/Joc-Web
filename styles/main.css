@@ -6,6 +6,9 @@ input[type=number]{
     text-align: center;
 }
 
+td, th{
+	font-family: Valo;
+}
 
 body{
 	background-color: #e69a9a;
@@ -36,7 +39,7 @@ body{
 	position:absolute;	
 	top:50%;
 	left:50%;
-	transform: translate(-50%,-70%);
+	transform: translate(-50%,-50%);
 	justify-content: center;
 	grid-template-columns:  1fr 30rem 1fr;
 	row-gap:0.5rem;
