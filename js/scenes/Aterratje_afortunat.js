@@ -226,13 +226,13 @@ class GameScene extends Phaser.Scene {
     }
     destroyGameObjects() {
         // Destruye todos los misiles
-        this.missiles.getChildren().forEach(function (missile) {
-            missile.destroy();
+        this.bombas.getChildren().forEach(function (bomba) {
+            bomba.destroy();
         });
     
         // Destruye todos los archivos
-        this.fitxers.getChildren().forEach(function (fitxer) {
-            fitxer.destroy();
+        this.globus.getChildren().forEach(function (globu) {
+            globu.destroy();
         });
     }
     showGameOverScreen() {
