@@ -52,9 +52,12 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
 		this.puntuacion = 0;
+        this.puntsTotals=0;
 		this.priceU=200;
         this.delayB = 2000;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createMissile
+        this.gameTime = 0;
+        this.gameDuration = 5 * 60 * 1000; // 5 minutos en milisegons
     }
 
     preload() {
@@ -131,7 +134,11 @@ class GameScene extends Phaser.Scene {
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), missile.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
                 this.puntuacion -= 20; // Incrementa la puntuación por cada globo guardado
-				if(this.puntuacion<0) this.puntuacion=0;
+                puntsTotals-=20;
+				if(this.puntuacion<0) {
+                    this.puntuacion=0; 
+                    puntsTotals+=20;
+                }
 				this.updatePuntuacionText();
 				missile.destroy();
             }
@@ -148,6 +155,7 @@ class GameScene extends Phaser.Scene {
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), fitxer.getBounds())) {
                 // Aquí puedes agregar el código para manejar la colisión
                 this.puntuacion += 50; // Incrementa la puntuación por cada globo guardado
+                this.puntsTotals+=50;
         		this.updatePuntuacionText(); // Actualiza el texto de puntuación
 				fitxer.destroy();
             }
@@ -157,6 +165,13 @@ class GameScene extends Phaser.Scene {
                 fitxer.destroy();
             }
         }, this);
+
+        this.gameTime += this.time.deltaTime;
+
+        if (this.gameTime >= this.gameDuration) {
+            // Lógica para finalizar la partida
+            this.showGameOverScreen();
+        }
     }
 
     compraMillora(){
@@ -232,5 +247,25 @@ class GameScene extends Phaser.Scene {
     
     updatePreuText() {
         this.preuText.setText('Price Upgrade: ' + this.priceU);
+    }
+
+    showGameOverScreen() {
+        // Se pausa la escena actual y se muestra un texto, un botón de reinicio, etc.
+        this.scene.pause();
+        this.input.enabled = false;
+
+        const gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, 'Game Over', { fontSize: '64px', fill: '#000', fontFamily: 'Valo' });
+        gameOverText.setOrigin(0.5);
+
+        const scoreText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Final Score: ' + this.puntsTotals, { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
+        scoreText.setOrigin(0.5);
+
+        const exitButton = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 100, 'boton');
+        exitButton.scaleX = 0.5;
+        exitButton.scaleY = 0.5;
+        exitButton.setInteractive();
+        exitButton.on('pointerdown', () => {
+            loadpage("../");
+        });
     }
 }
