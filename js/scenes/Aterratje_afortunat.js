@@ -60,6 +60,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('plataforma', '../resources/plataforma.png');
         this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
+        this.load.image('boton', '../resources/boton.png');
         this.load.image('millora', '../resources/millora.png');
         this.load.image('background', '../resources/fons.png');
     }
