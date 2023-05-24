@@ -35,9 +35,6 @@ var options = function(){
 				this.dificulty = options_data.dificulty;
 			},
 			save: function(){
-				options_data.cards = this.num;
-				options_data.dificulty = this.dificulty;
-				save();
 				loadpage("../");
 			}
 		}
