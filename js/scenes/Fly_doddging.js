@@ -8,7 +8,7 @@ var MiniScreenScene = new Phaser.Class({
 
     preload: function () {
         this.load.image('boton', '../resources/boton.png');
-        this.load.image('textInfo', '../resources/text_menu.png');
+        this.load.image('textInfo', '../resources/text_pauseFD.png');
     },
 
     create: function () {
@@ -20,8 +20,8 @@ var MiniScreenScene = new Phaser.Class({
         this.textIn.setScale(0.4);
         const buttonExit = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 300, 'boton');
         buttonExit.text
-		buttonExit.scaleX = .5;
-		buttonExit.scaleY = .5;
+		buttonExit.scaleX = .4;
+		buttonExit.scaleY = .4;
         buttonExit.setInteractive();
         buttonExit.on('pointerdown', () => {
 			loadpage("../");
