@@ -1,4 +1,4 @@
-// Escena de la minipantalla
+// Escena de la pantalla de pausa
 var MiniScreenScene = new Phaser.Class({
     Extends: Phaser.Scene,
 
@@ -12,7 +12,7 @@ var MiniScreenScene = new Phaser.Class({
     },
 
     create: function () {
-        // Agrega un rectángulo verde como fondo de la escena
+        // Part visual de la pantalla de pausa
         var rect = this.add.rectangle(this.cameras.main.centerX-300, this.cameras.main.centerY-300, 600, 600, 0xe69a9a, 0.7);
         rect.setOrigin(0);
         rect.setStrokeStyle(4, 0xffffff);// Agrega un borde al rectángulo
