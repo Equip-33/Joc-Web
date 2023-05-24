@@ -26,10 +26,6 @@ var MiniScreenScene = new Phaser.Class({
         buttonExit.on('pointerdown', () => {
 			loadpage("../");
         });
-
-        // Aquí puedes crear los elementos adicionales de la minipantalla
-        // Por ejemplo, puedes agregar texto, botones, etc.
-
         // Agrega un evento de teclado para la tecla Escape (para cerrar la minipantalla)
         this.input.keyboard.on('keydown-ESC', this.closeMiniScreen, this);
     },
@@ -44,8 +40,6 @@ var MiniScreenScene = new Phaser.Class({
         // Destruye la escena de la minipantalla
         this.scene.remove('MiniScreen');    
     }
-
-    // Resto del código de la escena de la minipantalla...
 });
 
 class GameScene extends Phaser.Scene {
