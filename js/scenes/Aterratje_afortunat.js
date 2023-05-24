@@ -56,6 +56,8 @@ class GameScene extends Phaser.Scene {
         this.puntuacion = 0;
         this.priceU=200;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createBombas
+        this.gameTime = 0;
+        this.gameDuration = 120 ; // 2 minutos 
     }
 
     preload() {
@@ -63,10 +65,12 @@ class GameScene extends Phaser.Scene {
         this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
         this.load.image('millora', '../resources/millora.png');
+        this.load.image('background', '../resources/fons.png');
     }
 
     create() {
         this.cameras.main.setBackgroundColor(0x89BCEB);
+        this.add.image(0, 0, 'background').setOrigin(0).setScale(2,1.5)
         this.puntuacionText = this.add.text(16, 16, 'Score: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
         this.puntuacionText.setText("Score: " + this.puntuacion);
         this.preuText = this.add.text(16, 50, 'Price Upgrade: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });

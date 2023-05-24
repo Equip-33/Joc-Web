@@ -57,7 +57,7 @@ class GameScene extends Phaser.Scene {
         this.delayB = 2000;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createMissile
         this.gameTime = 0;
-        this.gameDuration = 10 ; // 5 minutos en milisegons
+        this.gameDuration = 120 ; // 2 minutos 
     }
 
     preload() {
@@ -269,7 +269,7 @@ class GameScene extends Phaser.Scene {
         this.time.removeAllEvents();
         this.children.removeAll();
         
-        const gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, 'Game Over', { fontSize: '64px', fill: '#000', fontFamily: 'Valo' });
+        const gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, 'Time Out', { fontSize: '64px', fill: '#000', fontFamily: 'Valo' });
         gameOverText.setOrigin(0.5);
 
         const scoreText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Final Score: ' + this.puntsTotals, { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
