@@ -6,22 +6,25 @@
 		<title> ScoreBoard </title>
 	</head>
 	<body>
-		<div id="scores_id">
+		<div class="menu-container" id="scores_id">
 			<p class="menu-object" id="title">Score Board</p>
+			
 			<table>
 				<thead>
 					<tr>
-						<th class="table_header"> Username </th>
-						<th class="table_header"> Score </th>
+						<th class="table_header" id="User"> Username </th>
+						<th class="table_header" id="score"> Score </th>
 					</tr>
 				</thead>
 				<tr v-for="(score, indx) in scoresFD.slice(0, 10)">
 					<td> {{score.username}}</td>
-					<td>{{score.punts}}</td>
+					<td> {{score.punts}}</td>
 				</tr>
+				
 			</table>
+			<button class="menu-object" v-on:click="exit"> Go to menu </button>
 		</div>
-		<button class="menu-object" v-on:click="exit"> Go to menu </button>
+		
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 	<script src="../js/scores.js"></script>
