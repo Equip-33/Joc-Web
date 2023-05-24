@@ -26,10 +26,6 @@ var MiniScreenScene = new Phaser.Class({
         buttonExit.on('pointerdown', () => {
 			loadpage("../");
         });
-
-        // Aquí puedes crear los elementos adicionales de la minipantalla
-        // Por ejemplo, puedes agregar texto, botones, etc.
-
         // Agrega un evento de teclado para la tecla Escape (para cerrar la minipantalla)
         this.input.keyboard.on('keydown-ESC', this.closeMiniScreen, this);
     },
@@ -44,8 +40,6 @@ var MiniScreenScene = new Phaser.Class({
         // Destruye la escena de la minipantalla
         this.scene.remove('MiniScreen');    
     }
-
-    // Resto del código de la escena de la minipantalla...
 });
 
 class GameScene extends Phaser.Scene {
@@ -120,7 +114,7 @@ class GameScene extends Phaser.Scene {
             this.globo.setVelocityY(-300); // Aplica una fuerza hacia arriba cuando se presiona la barra espaciadora
         }, this);
 
-        // Genera misiles cada 1 segundo
+        // Genera misiles cada delayB segundos
         this.bombasEvent = this.time.addEvent({
             delay: this.delayB,
             callback: this.createMissile,
@@ -152,7 +146,6 @@ class GameScene extends Phaser.Scene {
 
             // Comprueba si hay colisión entre el globo y los misiles
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), missile.getBounds())) {
-                // Aquí puedes agregar el código para manejar la colisión
                 this.puntuacion -= 20; // Incrementa la puntuación por cada globo guardado
                 this.puntsTotals-=20;
 				if(this.puntuacion<0) {
@@ -172,7 +165,6 @@ class GameScene extends Phaser.Scene {
 
             // Comprueba si hay colisión entre el globo y los misiles
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), fitxer.getBounds())) {
-                // Aquí puedes agregar el código para manejar la colisión
                 this.puntuacion += 50; // Incrementa la puntuación por cada globo guardado
                 this.puntsTotals+=50;
         		this.updatePuntuacionText(); // Actualiza el texto de puntuación
@@ -189,7 +181,6 @@ class GameScene extends Phaser.Scene {
 
             // Comprueba si hay colisión entre el globo y los misiles
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.globo.getBounds(), nuvol.getBounds())) {
-                // Aquí puedes agregar el código para manejar la colisión
                 this.nuvolRect.setVisible(true);
             }
             // Elimina los misiles que salen de la pantalla
