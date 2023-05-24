@@ -53,6 +53,7 @@ class GameScene extends Phaser.Scene {
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createBombas
         this.gameTime = 0;
         this.gameDuration = 120 ; // 2 minutos 
+        this.user="";
     }
 
     preload() {
@@ -64,6 +65,7 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
+        this.user = sessionStorage.getItem("playerName","unknown");
         this.cameras.main.setBackgroundColor(0x89BCEB);
         this.add.image(0, 0, 'background').setOrigin(0).setScale(2,1.5)
         this.puntuacionText = this.add.text(16, 16, 'Score: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
@@ -236,7 +238,7 @@ class GameScene extends Phaser.Scene {
         const gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, 'Time Out', { fontSize: '64px', fill: '#000', fontFamily: 'Valo' });
         gameOverText.setOrigin(0.5);
 
-        const scoreText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Final Score: ' + this.puntsTotals, { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
+        const scoreText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Final Score of '+this.user+ ": " + this.puntsTotals, { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
         scoreText.setOrigin(0.5);
 
         const exitButton = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 100, 'boton');

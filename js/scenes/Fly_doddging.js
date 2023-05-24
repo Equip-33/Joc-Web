@@ -52,7 +52,7 @@ class GameScene extends Phaser.Scene {
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createMissile
         this.nuvolTimer = 0;
         this.gameTime = 0;
-        this.gameDuration = 10 ; // 2 minutos 
+        this.gameDuration = 120 ; // 2 minutos 
         this.user="";
     }
 
