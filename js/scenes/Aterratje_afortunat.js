@@ -54,6 +54,7 @@ class GameScene extends Phaser.Scene {
         this.velocitat = 200;
         this.delayB = 3000;
         this.puntuacion = 0;
+        this.puntsTotals=0;
         this.priceU=200;
         this.bombasEvent = null; // Variable para almacenar la referencia al evento createBombas
         this.gameTime = 0;
@@ -72,9 +73,9 @@ class GameScene extends Phaser.Scene {
         this.cameras.main.setBackgroundColor(0x89BCEB);
         this.add.image(0, 0, 'background').setOrigin(0).setScale(2,1.5)
         this.puntuacionText = this.add.text(16, 16, 'Score: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
-        this.puntuacionText.setText("Score: " + this.puntuacion);
+        this.updatePuntuacionText();
         this.preuText = this.add.text(16, 50, 'Price Upgrade: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
-        this.preuText.setText("Price Upgrade: " + this.priceU)
+        this.updatePreuText();
         this.plataforma = this.physics.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + this.cameras.main.centerY / 3, 'plataforma');
         this.plataforma.setImmovable(true);
         this.plataforma.setCollideWorldBounds(true);
@@ -119,8 +120,8 @@ class GameScene extends Phaser.Scene {
             this.delayB+=3000;
             this.puntuacion-=200;
             this.priceU+=100;
-            this.puntuacionText.setText('Score: ' + this.puntuacion); // Actualiza el texto de puntuación
-            this.preuText.setText('Price Upgrade: ' + this.priceU);
+            this.updatePuntuacionText(); // Actualiza el texto de puntuación
+            this.updatePreuText();
             if (this.bombasEvent) {
                 // Si hay un evento createBombas activo, lo eliminamos
                 this.time.removeEvent(this.bombasEvent);
@@ -156,7 +157,13 @@ class GameScene extends Phaser.Scene {
             });
         }
     }
-
+    updatePuntuacionText() {
+        this.puntuacionText.setText('Score: ' + this.puntuacion);
+    }
+    
+    updatePreuText() {
+        this.preuText.setText('Price Upgrade: ' + this.priceU);
+    }
     createGlobus() {
         var x = Phaser.Math.Between(0, this.sys.game.config.width);
         var object = this.globus.create(x, 0, 'globo');
@@ -169,16 +176,16 @@ class GameScene extends Phaser.Scene {
     handleCollisionG(plataforma, globus) {
         globus.destroy();
         this.puntuacion += 10; // Incrementa la puntuación por cada globo guardado
-        this.puntuacionText.setText('Score: ' + this.puntuacion); // Actualiza el texto de puntuación
-        // Aquí puedes agregar la lógica adicional que desees cuando la plataforma colisione con un globo
+        this.puntsTotals+=10;
+        this.updatePuntuacionText();
     }
 
     handleCollisionB(plataforma, bomba) {
         bomba.destroy();
         this.puntuacion -= 20; // Incrementa la puntuación por cada globo guardado
+        this.puntsTotals-=20;
         if(this.puntuacion<0) this.puntuacion=0;
-        this.puntuacionText.setText('Score: ' + this.puntuacion); // Actualiza el texto de puntuación
-        // Aquí puedes agregar la lógica adicional que desees cuando la plataforma colisione con una bomba
+        this.updatePuntuacionText(); // Actualiza el texto de puntuación
     }
 
     movePlataforma(pointer) {
@@ -209,5 +216,41 @@ class GameScene extends Phaser.Scene {
                 object.destroy();
             }
         }, this);
+
+        this.gameTime += delta / 1000; // Divide por 1000 para obtener el tiempo en segundos
+        if (this.gameTime >= this.gameDuration) {
+            // Lógica para finalizar la partida
+            this.showGameOverScreen();
+            this.destroyGameObjects();
+        }
+    }
+    destroyGameObjects() {
+        // Destruye todos los misiles
+        this.missiles.getChildren().forEach(function (missile) {
+            missile.destroy();
+        });
+    
+        // Destruye todos los archivos
+        this.fitxers.getChildren().forEach(function (fitxer) {
+            fitxer.destroy();
+        });
+    }
+    showGameOverScreen() {
+        this.time.removeAllEvents();
+        this.children.removeAll();
+        
+        const gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, 'Time Out', { fontSize: '64px', fill: '#000', fontFamily: 'Valo' });
+        gameOverText.setOrigin(0.5);
+
+        const scoreText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Final Score: ' + this.puntsTotals, { fontSize: '32px', fill: '#000', fontFamily: 'Valo' });
+        scoreText.setOrigin(0.5);
+
+        const exitButton = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 100, 'boton');
+        exitButton.scaleX = 0.5;
+        exitButton.scaleY = 0.5;
+        exitButton.setInteractive();
+        exitButton.on('pointerdown', () => {
+            loadpage("../");
+        });
     }
 }

@@ -138,7 +138,6 @@ class GameScene extends Phaser.Scene {
                 this.puntsTotals-=20;
 				if(this.puntuacion<0) {
                     this.puntuacion=0; 
-                    this.puntsTotals+=20;
                 }
 				this.updatePuntuacionText();
 				missile.destroy();
@@ -168,7 +167,6 @@ class GameScene extends Phaser.Scene {
         }, this);
 
         this.gameTime += delta / 1000; // Divide por 1000 para obtener el tiempo en segundos
-        console.log(this.gameTime + " hasta: " + this.gameDuration);
 
         if (this.gameTime >= this.gameDuration) {
             // Lógica para finalizar la partida
