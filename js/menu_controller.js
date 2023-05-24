@@ -27,7 +27,7 @@ var menu = new Vue({
 		},
 		options() {
 		  // Lógica para el botón Options
-		  loadpage("./html/options.html");
+		  loadpage("./html/how_to_play.html");
 		},
 		scoreboard(){
 			loadpage("./html/scoreboard.html");
