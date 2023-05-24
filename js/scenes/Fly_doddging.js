@@ -53,12 +53,15 @@ class GameScene extends Phaser.Scene {
         super('GameScene');
 		this.puntuacion = 0;
 		this.priceU=200;
+        this.delayB = 2000;
+        this.bombasEvent = null; // Variable para almacenar la referencia al evento createMissile
     }
 
     preload() {
 		this.load.image('bomba', '../resources/bomba.png');
         this.load.image('globo', '../resources/globo.png');
 		this.load.image('fitxer', '../resources/Fitxer.png');
+        this.load.image('millora', '../resources/millora.png');
     }
 
     create() {
@@ -69,6 +72,14 @@ class GameScene extends Phaser.Scene {
         this.preuText = this.add.text(16, 50, 'Price Upgrade: ', { fontSize: '32px', fill: '#000',fontFamily: 'Valo' });
         this.preuText.setText("Price Upgrade: " + this.priceU)
 
+        const button = this.add.sprite(this.cameras.main.centerX , this.cameras.main.height - 200, 'millora');
+		button.scaleX = .2;
+		button.scaleY = .2;
+        button.setInteractive();
+        button.on('pointerdown', () => {
+			this.compraMillora
+        });
+        this.input.keyboard.on('keydown-B', this.compraMillora, this);
 
         this.globo = this.physics.add.sprite(400, 100, 'globo');
         this.globo.setCollideWorldBounds(true);
@@ -89,11 +100,11 @@ class GameScene extends Phaser.Scene {
         }, this);
 
         // Genera misiles cada 1 segundo
-        this.time.addEvent({
-            delay: 1000,
+        this.bombasEvent = this.time.addEvent({
+            delay: this.delayB,
             callback: this.createMissile,
             callbackScope: this,
-            loop: true,
+            loop: true
         });
 
 		// Genera archivos cada 3 segundo
@@ -148,6 +159,27 @@ class GameScene extends Phaser.Scene {
         }, this);
     }
 
+    compraMillora(){
+        if(this.puntuacion>=this.priceU){
+            this.delayB+=2000;
+            this.puntuacion-=200;
+            this.priceU+=100;
+            this.puntuacionText.setText('Score: ' + this.puntuacion); // Actualiza el texto de puntuación
+            this.preuText.setText('Price Upgrade: ' + this.priceU);
+            if (this.bombasEvent) {
+                // Si hay un evento createMissile activo, lo eliminamos
+                this.time.removeEvent(this.bombasEvent);
+                // Creamos un nuevo evento createMissile con el nuevo retardo
+                this.bombasEvent = this.time.addEvent({
+                    delay: this.delayB,
+                    callback: this.createMissile,
+                    callbackScope: this,
+                    loop: true
+                });
+            }
+        }
+    }
+
     createMissile() {
         var x = this.game.config.width;
         var y = Phaser.Math.Between(100, this.game.config.height - 100);
@@ -157,6 +189,20 @@ class GameScene extends Phaser.Scene {
 		missile.setScale(0.4);
 		missile.setAngle(90);
         missile.setImmovable();
+
+        if(this.delayB<600) this.delayB=800;
+        else this.delayB-=200;
+        if (this.bombasEvent) {
+            // Si hay un evento createMissile activo, lo eliminamos
+            this.time.removeEvent(this.bombasEvent);
+            // Creamos un nuevo evento createMissile con el nuevo retardo
+            this.bombasEvent = this.time.addEvent({
+                delay: this.delayB,
+                callback: this.createMissile,
+                callbackScope: this,
+                loop: true
+            });
+        }
     }
 
 	createFile() {
