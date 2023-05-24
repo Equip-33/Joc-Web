@@ -77,9 +77,15 @@ class GameScene extends Phaser.Scene {
 		button.scaleY = .2;
         button.setInteractive();
         button.on('pointerdown', () => {
-			this.compraMillora
+			this.compraMillora();
         });
         this.input.keyboard.on('keydown-B', this.compraMillora, this);
+
+        window.addEventListener("keydown", function (e) {
+			if (e.code === "Space" && e.target === document.body) {
+				e.preventDefault();
+			}
+		});
 
         this.globo = this.physics.add.sprite(400, 100, 'globo');
         this.globo.setCollideWorldBounds(true);
@@ -114,12 +120,6 @@ class GameScene extends Phaser.Scene {
             callbackScope: this,
             loop: true,
         });
-
-		window.addEventListener("keydown", function (e) {
-			if (e.code === "Space" && e.target === document.body) {
-				e.preventDefault();
-			}
-		});
     }
 
     update() {
