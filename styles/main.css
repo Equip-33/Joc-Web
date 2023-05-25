@@ -6,6 +6,24 @@ input[type=number]{
     text-align: center;
 }
 
+#titleG{
+	width: 22rem;
+	font-family: Valo;
+	font-size: 3rem;
+	font-weight: bold;
+
+}
+
+#howToPlay_id{
+	display: flex;
+	flex-direction: column;
+	position:absolute;	
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	justify-content: center;
+}
+
 table{
 	grid-column: 2;
 	width: 100%;
@@ -97,7 +115,6 @@ body{
 	font-size: 1.5rem;
 	font-weight: bold;
 	grid-column: 3 ;
-	
 	height: auto;
 	margin-bottom: 1rem;
 }
