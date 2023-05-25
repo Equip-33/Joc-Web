@@ -6,6 +6,35 @@ input[type=number]{
     text-align: center;
 }
 
+p{
+	font-family: Valo;
+	font-size: 1.5rem;
+}
+
+mark{
+	color:#994538;
+	background-color:transparent;
+	font-weight: bold;
+}
+
+.conjunt{
+	display: flex;
+	float: left;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 20rem;
+}
+
+.column{
+	background: rgba(255, 255, 255, 0.8);
+	border-radius:2rem;
+	padding: 3rem;
+	margin-right: 2rem;
+	margin-left: 2rem;
+	flex:50%;
+}
+
 #titleG{
 	width: 22rem;
 	font-family: Valo;
@@ -15,13 +44,25 @@ input[type=number]{
 }
 
 #howToPlay_id{
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	width: 70%;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius:4rem;  
+	padding: 3rem;
 	position:absolute;	
 	top:50%;
 	left:50%;
 	transform: translate(-50%,-50%);
 	justify-content: center;
+}
+
+img{
+	width: 7rem;
+	height: auto;
+}
+
+#teclaB{
+	width: 5rem;
 }
 
 table{
