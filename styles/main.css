@@ -23,15 +23,18 @@ mark{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 20rem;
+	width: 18rem;
 }
 
-.column{
+.colum{
+	display: flex;
+	flex-direction: column;
 	background: rgba(255, 255, 255, 0.8);
 	border-radius:2rem;
-	padding: 3rem;
+	padding: 2rem;
 	margin-right: 2rem;
 	margin-left: 2rem;
+	margin-bottom: 2rem;
 	flex:50%;
 }
 
@@ -63,6 +66,10 @@ img{
 
 #teclaB{
 	width: 5rem;
+}
+
+#teclaG{
+	width: 16rem;
 }
 
 table{
