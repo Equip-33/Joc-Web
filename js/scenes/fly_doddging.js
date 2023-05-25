@@ -109,9 +109,9 @@ class GameScene extends Phaser.Scene {
 
         this.nuvols = this.physics.add.group();
 
-        // Agrega el evento de teclado para la barra espaciadora
+        // Agrega el evento de teclado para el space
         this.input.keyboard.on('keydown-SPACE', function () {
-            this.globo.setVelocityY(-300); // Aplica una fuerza hacia arriba cuando se presiona la barra espaciadora
+            this.globo.setVelocityY(-300); // Aplica una fuerza hacia arriba cuando se presiona space
         }, this);
 
         // Genera misiles cada delayB segundos
