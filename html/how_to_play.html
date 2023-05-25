@@ -11,34 +11,38 @@
 			<p class="menu-object" id="title2">Aterratge Afortunat</p>
 			<p class="menu-object" id="title3">Fly Dondging</p>
 			<div class="colum" id="ESQ">
-				<div class="conjunt" id="1">
+				<div class="conjunt" id="R1">
 					<img src="..\resources\teclaB.png" id="teclaB">
 					<p>Press <mark>B</mark> to buy the upgrade</p>
 				</div>
-				<div class="conjunt" id="1">
+				<div class="conjunt" id="C2">
 					<img src="..\resources\teclaESC.png">
 					<p>Press <mark>ESC</mark> to go to Pause Menu or go to Game</p>
 				</div>	
-				<div class="conjunt" id="1">
+				<div class="conjunt" id="R2">
 					<img src="../resources/ratoli.png">
 					<p>Move the <mark>MOUSE</mark> to move the platform</p>
 				</div>			
+				<p id="R2"><mark>OBJECTIVE:</mark>Collect Chines ballons and dodge the American missiles</p>	
 			</div>
 			<div class="colum" id="DRT">
-				<div class="conjunt" id="1" >
+				<div class="conjunt" id="R1">
 					<img src="..\resources\teclaB.png" id="teclaB">
 					<p>Press <mark>B</mark> to buy the upgrade</p>
-				<div class="conjunt" id="1">
-					<img src="../resources/teclaESC.png">
+				</div>
+				<div class="conjunt" id="C2">
+					<img src="..\resources\teclaESC.png">
 					<p>Press <mark>ESC</mark> to go to Pause Menu or go to Game</p>
 				</div>	
-				<div class="conjunt" id="1">
+				<div class="conjunt" id="R2">
 					<img src="../resources/teclaEspai.png" id="teclaG">
 					<p>Press <mark>SPACE</mark> to gas the ballon</p>
-				</div>	
+				</div>		
+				<p id="R2"><mark>OBJECTIVE:</mark>Collect top secret files and dodge the American missiles</p>	
 			</div>
+			<button class="menu-object" v-on:click="exit"> Go to menu </button>
 		</div>
-		<button class="menu-object" v-on:click="exit"> Go to menu </button>
+		
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 	<script src="../js/how_to_play.js"></script>

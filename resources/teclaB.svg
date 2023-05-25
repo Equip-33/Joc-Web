@@ -231,7 +231,7 @@
        inkscape:export-ydpi="96" />
     <path
        id="path11179"
-       style="opacity:1;fill:none;stroke:#040404;stroke-width:1.6;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       style="opacity:1;fill:none;stroke:#040404;stroke-width:1.8;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 134.54188,52.442398 c 0,19.614033 1.04383,35.703991 -25.55814,35.514343 C 83.73693,87.776754 83.425608,72.056427 83.425608,52.442398 c 0,-19.614029 9.627582,-39.144706 25.558132,-38.885396 16.70627,0.271937 25.55814,19.271363 25.55814,38.885396 z"
        sodipodi:nodetypes="sssss"
        inkscape:export-filename="C:\Users\lcayu\OneDrive\Documents\GitHub\Joc-Web\resources\ratoli.png"
@@ -239,14 +239,14 @@
        inkscape:export-ydpi="96" />
     <path
        id="rect11758"
-       style="opacity:1;fill:none;stroke:#040404;stroke-width:6.04724417;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       style="opacity:1;fill:none;stroke:#040404;stroke-width:6.8031497;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
        d="M 411.30664 51.283203 L 412 106.72461 C 412 103.95254 411.30664 51.283203 411.30664 51.283203 z M 404.9043 108.80469 C 398.27639 108.80469 392.94141 118.01726 392.94141 129.46094 L 392.94141 149.13281 C 392.94141 160.57649 398.27639 169.78906 404.9043 169.78906 L 417.70703 169.78906 C 424.33494 169.78906 429.67188 160.57649 429.67188 149.13281 L 429.67188 129.46094 C 429.67188 118.01726 424.33494 108.80469 417.70703 108.80469 L 404.9043 108.80469 z M 411.30664 170.48242 L 411.30664 199.07031 L 411.30664 170.48242 z "
        transform="scale(0.26458333)"
        inkscape:export-filename="C:\Users\lcayu\OneDrive\Documents\GitHub\Joc-Web\resources\ratoli.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 83.796037,46.573727 c 25.028783,8.06789 25.028783,8.06789 50.012403,-0.365607"
        id="path12230"
        sodipodi:nodetypes="cc"
@@ -254,14 +254,14 @@
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 146.34541,52.371702 h -5.13716 c 0,0 -2.94608,0.02945 -3.27022,3.206017 -0.32414,3.176569 3.11174,3.59795 3.11174,3.59795 l 5.33801,-0.01937 -0.0545,1.866964 c 0,0 0.22689,1.102077 1.29655,0.615868 1.00484,-0.940006 6.7097,-5.413134 6.7097,-5.413134 0,0 1.26414,-0.940007 0.0324,-1.750357 -0.48621,-0.42138 -6.74211,-4.926922 -6.74211,-4.926922 0,0 -1.1669,-0.745522 -1.1669,0.680693 0,0.842762 -0.11749,2.142289 -0.11749,2.142289"
        id="path14732-7"
        inkscape:export-filename="C:\Users\lcayu\OneDrive\Documents\GitHub\Joc-Web\resources\ratoli.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 71.854849,52.738424 h 5.13716 c 0,0 2.94608,0.02945 3.27022,3.206017 0.32414,3.176569 -3.11174,3.59795 -3.11174,3.59795 l -5.33801,-0.01937 0.0545,1.866964 c 0,0 -0.22689,1.102077 -1.29655,0.615868 -1.00484,-0.940006 -6.7097,-5.413134 -6.7097,-5.413134 0,0 -1.26414,-0.940007 -0.0324,-1.750357 0.48621,-0.42138 6.74211,-4.926922 6.74211,-4.926922 0,0 1.1669,-0.745522 1.1669,0.680693 0,0.842762 0.11749,2.142289 0.11749,2.142289"
        id="path15122"
        inkscape:export-filename="C:\Users\lcayu\OneDrive\Documents\GitHub\Joc-Web\resources\ratoli.png"
