@@ -9,6 +9,7 @@ input[type=number]{
 p{
 	font-family: Valo;
 	font-size: 1.5rem;
+	font-weight: lighter;
 }
 
 mark{
@@ -118,12 +119,6 @@ table{
 }
 
 
-th{
-	font-family: Valo;
-	text-align: center;
-	font-weight: lighter;
-}
-
 #score{
 	width: 45%;
 }
@@ -131,20 +126,19 @@ th{
 td{
 	font-family: Valo;
 	text-align: center;
-	color:white;
+	color:#b96052;
 	font-size: 1.1rem;
 	font-weight: lighter;
 	width: 23rem;
-	border-bottom: 2px dashed #b36b6b;
+	border-bottom: 2px dashed white;
 	border-width: 0.2rem;
-	border-color:#b36b6b;
 	height: 2rem;
 }
 
 th{
 	font-family: Valo;
 	text-align: center;
-	color:white;
+	color:#994538;
 	font-size: 1.5rem;
 	font-weight: lighter;
 	border-bottom: 2px double white;
@@ -232,6 +226,9 @@ body{
 	grid-template-rows: auto auto auto;
 	row-gap:0.5rem;
 	align-content: center;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius:2rem;
+	padding: 3rem;
 }
 
 
